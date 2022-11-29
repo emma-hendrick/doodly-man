@@ -145,7 +145,7 @@ namespace Unit06.Game.Directing
             cast.ClearActors(Constants.BALL_GROUP);
         
             int x = Constants.CENTER_X - Constants.BALL_WIDTH / 2;
-            int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT - Constants.BALL_HEIGHT;
+            int y = Constants.SCREEN_HEIGHT - Constants.SLIME_HEIGHT - Constants.BALL_HEIGHT;
         
             Point position = new Point(x, y);
             Point size = new Point(Constants.BALL_WIDTH, Constants.BALL_HEIGHT);
@@ -231,20 +231,20 @@ namespace Unit06.Game.Directing
 
         private void AddRacket(Cast cast)
         {
-            cast.ClearActors(Constants.RACKET_GROUP);
+            cast.ClearActors(Constants.SLIME_GROUP);
         
-            int x = Constants.CENTER_X - Constants.RACKET_WIDTH / 2;
-            int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT;
+            int x = Constants.CENTER_X - Constants.SLIME_WIDTH / 2;
+            int y = Constants.SCREEN_HEIGHT - Constants.SLIME_HEIGHT;
         
             Point position = new Point(x, y);
-            Point size = new Point(Constants.RACKET_WIDTH, Constants.RACKET_HEIGHT);
+            Point size = new Point(Constants.SLIME_WIDTH, Constants.SLIME_HEIGHT);
             Point velocity = new Point(0, 0);
         
             Body body = new Body(position, size, velocity);
-            Animation animation = new Animation(Constants.RACKET_IMAGES, Constants.RACKET_RATE, 0);
-            Racket racket = new Racket(body, animation, false);
+            Animation animation = new Animation(Constants.SLIME_IMAGES, Constants.SLIME_RATE, 0);
+            Slime slime = new Slime(body, animation, false);
         
-            cast.AddActor(Constants.RACKET_GROUP, racket);
+            cast.AddActor(Constants.SLIME_GROUP, slime);
         }
 
         private void AddScore(Cast cast)

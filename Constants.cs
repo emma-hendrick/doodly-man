@@ -103,19 +103,19 @@ namespace Unit06
         public static int BALL_VELOCITY = 6;
 
         // RACKET
-        public static string RACKET_GROUP = "rackets";
+        public static string SLIME_GROUP = "slimes";
         
-        public static List<string> RACKET_IMAGES
+        public static List<string> SLIME_IMAGES
             = new List<string>() {
                 "Assets/Images/100.png",
                 "Assets/Images/101.png",
                 "Assets/Images/102.png"
             };
 
-        public static int RACKET_WIDTH = 106;
-        public static int RACKET_HEIGHT = 28;
-        public static int RACKET_RATE = 6;
-        public static int RACKET_VELOCITY = 7;
+        public static int SLIME_WIDTH = 106;
+        public static int SLIME_HEIGHT = 28;
+        public static int SLIME_RATE = 6;
+        public static int SLIME_VELOCITY = 7;
 
         // BRICK
         public static string BRICK_GROUP = "bricks";

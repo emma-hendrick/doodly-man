@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "oZoKuoaGzaUMXiiBZJDD7p7XjPiDbdL9x0P4l67+7guEjhZ7jq5skIsyXxlQZJccQNGcE0MWiJVpOezOE5/tFA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\mhend\\OneDrive\\Documents\\School\\CSE210\\cse210-articulate\\Unit06\\Unit06.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mhend\\.nuget\\packages\\raylib-cs\\3.7.0.1\\raylib-cs.3.7.0.1.nupkg.sha512",
+    "C:\\Users\\mhend\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -118,9 +118,9 @@ namespace Unit06
         public static int SLIME_VELOCITY = 7;
 
         // BRICK
-        public static string BRICK_GROUP = "bricks";
+        public static string PLATFORM_GROUP = "platforms";
         
-        public static Dictionary<string, List<string>> BRICK_IMAGES
+        public static Dictionary<string, List<string>> PLATFORM_IMAGES
             = new Dictionary<string, List<string>>() {
                 { "b", new List<string>() {
                     "Assets/Images/010.png",
@@ -168,11 +168,11 @@ namespace Unit06
                 } }
         };
 
-        public static int BRICK_WIDTH = 80;
-        public static int BRICK_HEIGHT = 28;
-        public static double BRICK_DELAY = 0.5;
-        public static int BRICK_RATE = 4;
-        public static int BRICK_POINTS = 50;
+        public static int PLATFORM_WIDTH = 80;
+        public static int PLATFORM_HEIGHT = 28;
+        public static double PLATFORM_DELAY = 0.5;
+        public static int PLATFORM_RATE = 4;
+        public static int PLATFORM_POINTS = 50;
 
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";

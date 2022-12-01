@@ -15,18 +15,18 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Racket racket = (Racket)cast.GetFirstActor(Constants.RACKET_GROUP);
+            Slime slime = (Slime)cast.GetFirstActor(Constants.SLIME_GROUP);
             if (_keyboardService.IsKeyDown(Constants.LEFT))
             {
-                racket.SwingLeft();
+                slime.SwingLeft();
             }
             else if (_keyboardService.IsKeyDown(Constants.RIGHT))
             {
-                racket.SwingRight();
+                slime.SwingRight();
             }
             else
             {
-                racket.StopMoving();
+                slime.StopMoving();
             }
         }
     }

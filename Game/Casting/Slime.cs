@@ -3,7 +3,7 @@ namespace Unit06.Game.Casting
     /// <summary>
     /// A thing that participates in the game.
     /// </summary>
-    public class Racket : Actor
+    public class Slime : Actor
     {
         private Body _body;
         private Animation _animation;
@@ -11,7 +11,7 @@ namespace Unit06.Game.Casting
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Racket(Body body, Animation animation, bool debug) : base(debug)
+        public Slime(Body body, Animation animation, bool debug) : base(debug)
         {
             this._body = body;
             this._animation = animation;
@@ -36,7 +36,7 @@ namespace Unit06.Game.Casting
         }
 
         /// <summary>
-        /// Moves the racket to its next position.
+        /// Moves the Slime to its next position.
         /// </summary>
         public void MoveNext()
         {
@@ -47,25 +47,25 @@ namespace Unit06.Game.Casting
         }
 
         /// <summary>
-        /// Swings the racket to the left.
+        /// Swings the Slime to the left.
         /// </summary>
         public void SwingLeft()
         {
-            Point velocity = new Point(-Constants.RACKET_VELOCITY, 0);
+            Point velocity = new Point(-Constants.SLIME_VELOCITY, 0);
             _body.SetVelocity(velocity);
         }
 
         /// <summary>
-        /// Swings the racket to the right.
+        /// Swings the Slime to the right.
         /// </summary>
         public void SwingRight()
         {
-            Point velocity = new Point(Constants.RACKET_VELOCITY, 0);
+            Point velocity = new Point(Constants.SLIME_VELOCITY, 0);
             _body.SetVelocity(velocity);
         }
 
         /// <summary>
-        /// Stops the racket from moving.
+        /// Stops the Slime from moving.
         /// </summary>
         public void StopMoving()
         {

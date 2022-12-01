@@ -52,7 +52,7 @@ namespace Unit06.Game.Directing
             AddScore(cast);
             AddLives(cast);
             AddBall(cast);
-            AddBricks(cast);
+            AddPlatforms(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.ENTER_TO_START);
 
@@ -77,7 +77,7 @@ namespace Unit06.Game.Directing
         private void PrepareNextLevel(Cast cast, Script script)
         {
             AddBall(cast);
-            AddBricks(cast);
+            AddPlatforms(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
@@ -145,7 +145,7 @@ namespace Unit06.Game.Directing
             cast.ClearActors(Constants.BALL_GROUP);
         
             int x = Constants.CENTER_X - Constants.BALL_WIDTH / 2;
-            int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT - Constants.BALL_HEIGHT;
+            int y = Constants.SCREEN_HEIGHT - Constants.SLIME_HEIGHT - Constants.BALL_HEIGHT;
         
             Point position = new Point(x, y);
             Point size = new Point(Constants.BALL_WIDTH, Constants.BALL_HEIGHT);
@@ -158,9 +158,9 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.BALL_GROUP, ball);
         }
 
-        private void AddBricks(Cast cast)
+        private void AddPlatforms(Cast cast)
         {
-            cast.ClearActors(Constants.BRICK_GROUP);
+            cast.ClearActors(Constants.PLATFORM_GROUP);
 
             Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
             int level = stats.GetLevel() % Constants.BASE_LEVELS;
@@ -171,23 +171,23 @@ namespace Unit06.Game.Directing
             {
                 for (int c = 0; c < rows[r].Count; c++)
                 {
-                    int x = Constants.FIELD_LEFT + c * Constants.BRICK_WIDTH;
-                    int y = Constants.FIELD_TOP + r * Constants.BRICK_HEIGHT;
+                    int x = Constants.FIELD_LEFT + c * Constants.PLATFORM_WIDTH;
+                    int y = Constants.FIELD_TOP + r * Constants.PLATFORM_HEIGHT;
 
                     string color = rows[r][c][0].ToString();
                     int frames = (int)Char.GetNumericValue(rows[r][c][1]);
-                    int points = Constants.BRICK_POINTS;
+                    int points = Constants.PLATFORM_POINTS;
 
                     Point position = new Point(x, y);
-                    Point size = new Point(Constants.BRICK_WIDTH, Constants.BRICK_HEIGHT);
+                    Point size = new Point(Constants.PLATFORM_WIDTH, Constants.PLATFORM_HEIGHT);
                     Point velocity = new Point(0, 0);
-                    List<string> images = Constants.BRICK_IMAGES[color].GetRange(0, frames);
+                    List<string> images = Constants.PLATFORM_IMAGES[color].GetRange(0, frames);
 
                     Body body = new Body(position, size, velocity);
-                    Animation animation = new Animation(images, Constants.BRICK_RATE, 1);
+                    Animation animation = new Animation(images, Constants.PLATFORM_RATE, 1);
                     
-                    Brick brick = new Brick(body, animation, points, false);
-                    cast.AddActor(Constants.BRICK_GROUP, brick);
+                    Platform platform = new Platform(body, animation, points, false);
+                    cast.AddActor(Constants.PLATFORM_GROUP, platform);
                 }
             }
         }
@@ -231,20 +231,20 @@ namespace Unit06.Game.Directing
 
         private void AddRacket(Cast cast)
         {
-            cast.ClearActors(Constants.RACKET_GROUP);
+            cast.ClearActors(Constants.SLIME_GROUP);
         
-            int x = Constants.CENTER_X - Constants.RACKET_WIDTH / 2;
-            int y = Constants.SCREEN_HEIGHT - Constants.RACKET_HEIGHT;
+            int x = Constants.CENTER_X - Constants.SLIME_WIDTH / 2;
+            int y = Constants.SCREEN_HEIGHT - Constants.SLIME_HEIGHT;
         
             Point position = new Point(x, y);
-            Point size = new Point(Constants.RACKET_WIDTH, Constants.RACKET_HEIGHT);
+            Point size = new Point(Constants.SLIME_WIDTH, Constants.SLIME_HEIGHT);
             Point velocity = new Point(0, 0);
         
             Body body = new Body(position, size, velocity);
-            Animation animation = new Animation(Constants.RACKET_IMAGES, Constants.RACKET_RATE, 0);
-            Racket racket = new Racket(body, animation, false);
+            Animation animation = new Animation(Constants.SLIME_IMAGES, Constants.SLIME_RATE, 0);
+            Slime slime = new Slime(body, animation, false);
         
-            cast.AddActor(Constants.RACKET_GROUP, racket);
+            cast.AddActor(Constants.SLIME_GROUP, slime);
         }
 
         private void AddScore(Cast cast)
@@ -301,7 +301,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawBallAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawBricksAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawPlatformsAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawRacketAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
@@ -323,7 +323,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.UPDATE, new MoveBallAction());
             script.AddAction(Constants.UPDATE, new MoveRacketAction());
             script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
-            script.AddAction(Constants.UPDATE, new CollideBrickAction(PhysicsService, AudioService));
+            script.AddAction(Constants.UPDATE, new CollidePlatformAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CheckOverAction());     
         }

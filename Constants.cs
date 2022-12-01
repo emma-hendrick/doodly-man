@@ -102,6 +102,7 @@ namespace Unit06
         public static int BALL_HEIGHT = 28;
         public static int BALL_VELOCITY = 6;
 
+
         // RACKET
         public static string RACKET_GROUP = "rackets";
         
@@ -116,6 +117,8 @@ namespace Unit06
         public static int RACKET_HEIGHT = 28;
         public static int RACKET_RATE = 6;
         public static int RACKET_VELOCITY = 7;
+        public static int JUMP_VELOCITY = 6;
+        public static int FALL_VELOCITY = 8;
 
         // BRICK
         public static string BRICK_GROUP = "bricks";

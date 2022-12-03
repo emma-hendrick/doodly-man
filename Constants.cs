@@ -34,6 +34,7 @@ namespace Unit06
         public static string BOUNCE_SOUND = "Assets/Sounds/boing.wav";
         public static string WELCOME_SOUND = "Assets/Sounds/start.wav";
         public static string OVER_SOUND = "Assets/Sounds/over.wav";
+        public static string GAMEPLAY_SOUND = "Assets/Sounds/Of Far Different Nature - Escape - 01 - Rush (CC-BY).mp3";
 
         // TEXT
         public static int ALIGN_LEFT = 0;

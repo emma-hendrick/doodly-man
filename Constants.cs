@@ -103,7 +103,7 @@ namespace Unit06
         public static int BALL_VELOCITY = 6;
 
 
-        // RACKET
+        // SLIME
         public static string SLIME_GROUP = "slimes";
         
         public static List<string> SLIME_IMAGES
@@ -121,10 +121,10 @@ namespace Unit06
         public static int RACKET_HEIGHT = 28;
         public static int RACKET_RATE = 6;
         public static int RACKET_VELOCITY = 7;
-        public static int JUMP_VELOCITY = 6;
-        public static int FALL_VELOCITY = 8;
+        public static int JUMP_VELOCITY = 12;
+        public static int GRAVITY = 2;
 
-        // BRICK
+        // PLATFORMS
         public static string PLATFORM_GROUP = "platforms";
         
         public static Dictionary<string, List<string>> PLATFORM_IMAGES

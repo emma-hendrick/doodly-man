@@ -120,19 +120,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mhend\\.nuget\\packages\\": {}
+    "C:\\Users\\Colin Charles\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\mhend\\OneDrive\\Documents\\School\\CSE210\\cse210-articulate\\Unit06\\Unit06.csproj",
+      "projectUniqueName": "C:\\Users\\Colin Charles\\OneDrive - BYU-Idaho\\BYUI 2022\\Fall 2022\\CSE 210 - PROGRAMMING WITH CLASSES\\developer-csharp\\cse210-student-developer-csharp\\Unit06 - Doodly Man\\doodly-man\\Unit06.csproj",
       "projectName": "Unit06",
-      "projectPath": "c:\\Users\\mhend\\OneDrive\\Documents\\School\\CSE210\\cse210-articulate\\Unit06\\Unit06.csproj",
-      "packagesPath": "C:\\Users\\mhend\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\mhend\\OneDrive\\Documents\\School\\CSE210\\cse210-articulate\\Unit06\\obj\\",
+      "projectPath": "C:\\Users\\Colin Charles\\OneDrive - BYU-Idaho\\BYUI 2022\\Fall 2022\\CSE 210 - PROGRAMMING WITH CLASSES\\developer-csharp\\cse210-student-developer-csharp\\Unit06 - Doodly Man\\doodly-man\\Unit06.csproj",
+      "packagesPath": "C:\\Users\\Colin Charles\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Colin Charles\\OneDrive - BYU-Idaho\\BYUI 2022\\Fall 2022\\CSE 210 - PROGRAMMING WITH CLASSES\\developer-csharp\\cse210-student-developer-csharp\\Unit06 - Doodly Man\\doodly-man\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mhend\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Colin Charles\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -177,7 +177,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

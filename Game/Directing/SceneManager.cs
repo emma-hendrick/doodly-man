@@ -63,6 +63,9 @@ namespace Unit06.Game.Directing
             ChangeSceneAction a = new ChangeSceneAction(KeyboardService, Constants.NEXT_LEVEL);
             script.AddAction(Constants.INPUT, a);
 
+            PlaySoundAction sa = new PlaySoundAction(AudioService, Constants.GAMEPLAY_SOUND);
+            script.AddAction(Constants.OUTPUT, sa);
+
             AddOutputActions(script);
             AddUnloadActions(script);
             AddReleaseActions(script);

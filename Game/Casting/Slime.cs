@@ -89,7 +89,7 @@ namespace Unit06.Game.Casting
             Point newVelocity = _body.GetVelocity();
             int velocityX = newVelocity.GetX();
             int velocityY = newVelocity.GetY();
-            Point newerVelocity = new Point(velocityX, velocityY + Constants.GRAVITY);
+            Point newerVelocity = new Point(0, velocityY + Constants.GRAVITY);
             _body.SetVelocity(newerVelocity);
         }
         

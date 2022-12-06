@@ -1,3 +1,29 @@
-0000
-0000
-1111
+pl1, pc1, pr1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, fl8, fr8, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, pl1, pc1, pr1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, po1, ai1, ai1, ai1, pl1, pr1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+fc8, fr8, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, pl1, pc1, pr1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, pl1, pr1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+pc1, pc1, pc1, pr1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+pc1, pc1, pc1, pc1, pc1, pc1, pc1, pc1

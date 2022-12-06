@@ -127,51 +127,69 @@ namespace Unit06
         // BRICK
         public static string PLATFORM_GROUP = "platforms";
         
-        public static Dictionary<string, List<string>> PLATFORM_IMAGES
-            = new Dictionary<string, List<string>>() {
-                { "b", new List<string>() {
-                    "Assets/Images/010.png",
-                    "Assets/Images/011.png",
-                    "Assets/Images/012.png",
-                    "Assets/Images/013.png",
-                    "Assets/Images/014.png",
-                    "Assets/Images/015.png",
-                    "Assets/Images/016.png",
-                    "Assets/Images/017.png",
-                    "Assets/Images/018.png"
+        public static Dictionary<string, Dictionary<string, List<string>>> PLATFORM_IMAGES
+            = new Dictionary<string, Dictionary<string, List<string>>>() {
+                { "p", new Dictionary<string, List<string>>() {
+                    { "l", new List<string>(){
+                    "Assets/Images/Platforms/Standard/Left/000.png",
+                    }},
+                    { "c", new List<string>(){
+                    "Assets/Images/Platforms/Standard/Center/000.png",
+                    }},
+                    { "r", new List<string>(){
+                    "Assets/Images/Platforms/Standard/Right/000.png",
+                    }},
+                    { "o", new List<string>(){
+                    "Assets/Images/Platforms/Standard/Only/000.png",
+                    }}
                 } },
-                { "g", new List<string>() {
-                    "Assets/Images/020.png",
-                    "Assets/Images/021.png",
-                    "Assets/Images/022.png",
-                    "Assets/Images/023.png",
-                    "Assets/Images/024.png",
-                    "Assets/Images/025.png",
-                    "Assets/Images/026.png",
-                    "Assets/Images/027.png",
-                    "Assets/Images/028.png"
+                { "f", new Dictionary<string, List<string>>() {
+                    { "l", new List<string>(){
+                    "Assets/Images/Platforms/Flying/Left/000.png",
+                    "Assets/Images/Platforms/Flying/Left/001.png",
+                    "Assets/Images/Platforms/Flying/Left/002.png",
+                    "Assets/Images/Platforms/Flying/Left/003.png",
+                    "Assets/Images/Platforms/Flying/Left/004.png",
+                    "Assets/Images/Platforms/Flying/Left/005.png",
+                    "Assets/Images/Platforms/Flying/Left/006.png",
+                    "Assets/Images/Platforms/Flying/Left/007.png",
+                    }},
+                    { "c", new List<string>(){
+                    "Assets/Images/Platforms/Flying/Center/000.png",
+                    "Assets/Images/Platforms/Flying/Center/001.png",
+                    "Assets/Images/Platforms/Flying/Center/002.png",
+                    "Assets/Images/Platforms/Flying/Center/003.png",
+                    "Assets/Images/Platforms/Flying/Center/004.png",
+                    "Assets/Images/Platforms/Flying/Center/005.png",
+                    "Assets/Images/Platforms/Flying/Center/006.png",
+                    "Assets/Images/Platforms/Flying/Center/007.png",
+                    }},
+                    { "r", new List<string>(){
+                    "Assets/Images/Platforms/Flying/Right/000.png",
+                    "Assets/Images/Platforms/Flying/Right/001.png",
+                    "Assets/Images/Platforms/Flying/Right/002.png",
+                    "Assets/Images/Platforms/Flying/Right/003.png",
+                    "Assets/Images/Platforms/Flying/Right/003.png",
+                    "Assets/Images/Platforms/Flying/Right/004.png",
+                    "Assets/Images/Platforms/Flying/Right/005.png",
+                    "Assets/Images/Platforms/Flying/Right/006.png",
+                    "Assets/Images/Platforms/Flying/Right/007.png",
+                    }},
+                    { "o", new List<string>(){
+                    "Assets/Images/Platforms/Flying/Only/000.png",
+                    "Assets/Images/Platforms/Flying/Only/001.png",
+                    "Assets/Images/Platforms/Flying/Only/002.png",
+                    "Assets/Images/Platforms/Flying/Only/003.png",
+                    "Assets/Images/Platforms/Flying/Only/004.png",
+                    "Assets/Images/Platforms/Flying/Only/005.png",
+                    "Assets/Images/Platforms/Flying/Only/006.png",
+                    "Assets/Images/Platforms/Flying/Only/007.png",
+                    }}
                 } },
-                { "p", new List<string>() {
-                    "Assets/Images/030.png",
-                    "Assets/Images/031.png",
-                    "Assets/Images/032.png",
-                    "Assets/Images/033.png",
-                    "Assets/Images/034.png",
-                    "Assets/Images/035.png",
-                    "Assets/Images/036.png",
-                    "Assets/Images/037.png",
-                    "Assets/Images/038.png"
-                } },
-                { "y", new List<string>() {
-                    "Assets/Images/040.png",
-                    "Assets/Images/041.png",
-                    "Assets/Images/042.png",
-                    "Assets/Images/043.png",
-                    "Assets/Images/044.png",
-                    "Assets/Images/045.png",
-                    "Assets/Images/046.png",
-                    "Assets/Images/047.png",
-                    "Assets/Images/048.png"
+                { "a", new Dictionary<string, List<string>>() {
+                    { "i", new List<string>(){
+                    "Assets/Images/Air/000.png",
+                    }},
                 } }
         };
 

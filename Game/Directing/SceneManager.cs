@@ -234,7 +234,7 @@ namespace Unit06.Game.Directing
             cast.ClearActors(Constants.SLIME_GROUP);
         
             int x = Constants.CENTER_X - Constants.SLIME_WIDTH / 2;
-            int y = Constants.SCREEN_HEIGHT - Constants.SLIME_HEIGHT;
+            int y = Constants.SCREEN_HEIGHT/2 - Constants.SLIME_HEIGHT;
         
             Point position = new Point(x, y);
             Point size = new Point(Constants.SLIME_WIDTH, Constants.SLIME_HEIGHT);

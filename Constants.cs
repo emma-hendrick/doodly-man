@@ -123,7 +123,7 @@ namespace Unit06
         public static int RACKET_RATE = 6;
         public static int RACKET_VELOCITY = 7;
         public static int JUMP_VELOCITY = 12;
-        public static int GRAVITY = 2;
+        public static int GRAVITY = 1;
 
         // PLATFORMS
         public static string PLATFORM_GROUP = "platforms";

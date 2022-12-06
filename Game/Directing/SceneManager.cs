@@ -177,20 +177,25 @@ namespace Unit06.Game.Directing
                     int x = Constants.FIELD_LEFT + c * Constants.PLATFORM_WIDTH;
                     int y = Constants.FIELD_TOP + r * Constants.PLATFORM_HEIGHT;
 
-                    string color = rows[r][c][0].ToString();
-                    int frames = (int)Char.GetNumericValue(rows[r][c][1]);
+                    string type = rows[r][c][0].ToString();
+                    string direction = rows[r][c][1].ToString();
+                    int frames = (int)Char.GetNumericValue(rows[r][c][2]);
                     int points = Constants.PLATFORM_POINTS;
 
-                    Point position = new Point(x, y);
-                    Point size = new Point(Constants.PLATFORM_WIDTH, Constants.PLATFORM_HEIGHT);
-                    Point velocity = new Point(0, 0);
-                    List<string> images = Constants.PLATFORM_IMAGES[color].GetRange(0, frames);
+                    if (type != "a") { // As long as it isn't air, add it.
 
-                    Body body = new Body(position, size, velocity);
-                    Animation animation = new Animation(images, Constants.PLATFORM_RATE, 1);
-                    
-                    Platform platform = new Platform(body, animation, points, false);
-                    cast.AddActor(Constants.PLATFORM_GROUP, platform);
+                        Point position = new Point(x, y);
+                        Point size = new Point(Constants.PLATFORM_WIDTH, Constants.PLATFORM_HEIGHT);
+                        Point velocity = new Point(0, 0);
+                        List<string> images = Constants.PLATFORM_IMAGES[type][direction].GetRange(0, frames);
+
+                        Body body = new Body(position, size, velocity);
+                        Animation animation = new Animation(images, Constants.PLATFORM_RATE, 0);
+                        
+                        Platform platform = new Platform(body, animation, points, false);
+                        cast.AddActor(Constants.PLATFORM_GROUP, platform);
+
+                    }
                 }
             }
         }

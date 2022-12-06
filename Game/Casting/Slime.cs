@@ -42,6 +42,11 @@ namespace Unit06.Game.Casting
         {
             Point position = _body.GetPosition();
             Point velocity = _body.GetVelocity();
+            Point newVelocity = _body.GetVelocity();
+            int velocityX = newVelocity.GetX();
+            int velocityY = newVelocity.GetY();
+            Point newerVelocity = new Point(velocityX, velocityY - Constants.GRAVITY);
+            _body.SetVelocity(newerVelocity);
             Point newPosition = position.Add(velocity);
             _body.SetPosition(newPosition);
         }
@@ -51,8 +56,13 @@ namespace Unit06.Game.Casting
         /// </summary>
         public void SwingLeft()
         {
-            Point velocity = new Point(-Constants.SLIME_VELOCITY, 0);
-            _body.SetVelocity(velocity);
+            Point position = _body.GetPosition();
+            Point velocity = _body.GetVelocity();
+            Point newVelocity = _body.GetVelocity();
+            int velocityX = newVelocity.GetX();
+            int velocityY = newVelocity.GetY();
+            Point newerVelocity = new Point(-5, velocityY + Constants.GRAVITY);
+            _body.SetVelocity(newerVelocity);
         }
 
         /// <summary>
@@ -60,8 +70,13 @@ namespace Unit06.Game.Casting
         /// </summary>
         public void SwingRight()
         {
-            Point velocity = new Point(Constants.SLIME_VELOCITY, 0);
-            _body.SetVelocity(velocity);
+            Point position = _body.GetPosition();
+            Point velocity = _body.GetVelocity();
+            Point newVelocity = _body.GetVelocity();
+            int velocityX = newVelocity.GetX();
+            int velocityY = newVelocity.GetY();
+            Point newerVelocity = new Point(5, velocityY + Constants.GRAVITY);
+            _body.SetVelocity(newerVelocity);
         }
 
         /// <summary>
@@ -69,8 +84,13 @@ namespace Unit06.Game.Casting
         /// </summary>
         public void StopMoving()
         {
-            Point velocity = new Point(0, 0);
-            _body.SetVelocity(velocity);
+            Point position = _body.GetPosition();
+            Point velocity = _body.GetVelocity();
+            Point newVelocity = _body.GetVelocity();
+            int velocityX = newVelocity.GetX();
+            int velocityY = newVelocity.GetY();
+            Point newerVelocity = new Point(0, velocityY + Constants.GRAVITY);
+            _body.SetVelocity(newerVelocity);
         }
         
     }

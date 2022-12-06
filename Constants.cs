@@ -34,6 +34,7 @@ namespace Unit06
         public static string BOUNCE_SOUND = "Assets/Sounds/boing.wav";
         public static string WELCOME_SOUND = "Assets/Sounds/start.wav";
         public static string OVER_SOUND = "Assets/Sounds/over.wav";
+        public static string GAMEPLAY_SOUND = "Assets/Sounds/Of Far Different Nature - Escape - 01 - Rush (CC-BY).mp3";
 
         // TEXT
         public static int ALIGN_LEFT = 0;
@@ -103,7 +104,7 @@ namespace Unit06
         public static int BALL_VELOCITY = 6;
 
 
-        // RACKET
+        // SLIME
         public static string SLIME_GROUP = "slimes";
         
         public static List<string> SLIME_IMAGES
@@ -121,10 +122,10 @@ namespace Unit06
         public static int RACKET_HEIGHT = 28;
         public static int RACKET_RATE = 6;
         public static int RACKET_VELOCITY = 7;
-        public static int JUMP_VELOCITY = 6;
-        public static int FALL_VELOCITY = 8;
+        public static int JUMP_VELOCITY = 12;
+        public static int GRAVITY = 1;
 
-        // BRICK
+        // PLATFORMS
         public static string PLATFORM_GROUP = "platforms";
         
         public static Dictionary<string, Dictionary<string, List<string>>> PLATFORM_IMAGES

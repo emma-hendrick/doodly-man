@@ -15,8 +15,8 @@ namespace Unit06
         public static int FRAME_RATE = 60;
 
         // SCREEN
-        public static int SCREEN_WIDTH = 1040;
-        public static int SCREEN_HEIGHT = 680;
+        public static int SCREEN_WIDTH = 1280;
+        public static int SCREEN_HEIGHT = 840;
         public static int CENTER_X = SCREEN_WIDTH / 2;
         public static int CENTER_Y = SCREEN_HEIGHT / 2;
 
@@ -194,8 +194,8 @@ namespace Unit06
                 } }
         };
 
-        public static int PLATFORM_WIDTH = 80;
-        public static int PLATFORM_HEIGHT = 28;
+        public static int PLATFORM_WIDTH = 160;
+        public static int PLATFORM_HEIGHT = 56;
         public static double PLATFORM_DELAY = 0.5;
         public static int PLATFORM_RATE = 4;
         public static int PLATFORM_POINTS = 50;

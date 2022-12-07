@@ -18,26 +18,42 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
-            List<Actor> platforms = cast.GetActors(Constants.PLATFORM_GROUP);
+            Slime slime = (Slime)cast.GetFirstActor(Constants.SLIME_GROUP);
+            Body slimeBody = slime.GetBody();
+            int slimeVelocityY = slimeBody.GetVelocity().GetY();
             Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
+
+            List<Actor> collisionPlatforms = GetCollisionPlatforms(cast, slimeBody);
             
-            foreach (Actor actor in platforms)
+            foreach (Actor actor in collisionPlatforms)
             {
                 Platform platform = (Platform)actor;
                 Body platformBody = platform.GetBody();
-                Body ballBody = ball.GetBody();
 
-                if (_physicsService.HasCollided(platformBody, ballBody))
+                // Only jump when falling, and about to collide with a platform
+                if (_physicsService.WillCollide(slimeBody, platformBody) && slimeVelocityY > 0)
                 {
-                    ball.BounceY();
+                    slime.Jump();
                     Sound sound = new Sound(Constants.BOUNCE_SOUND);
                     _audioService.PlaySound(sound);
-                    int points = platform.GetPoints();
-                    stats.AddPoints(points);
-                    cast.RemoveActor(Constants.PLATFORM_GROUP, platform);
                 }
             }
+        }
+
+        public List<Actor> GetCollisionPlatforms(Cast cast, Body slimeBody)
+        {
+            int slimePositionY = slimeBody.GetPosition().GetY();
+            int slimeVelocityY = slimeBody.GetVelocity().GetY();
+            List<Actor> collisionPlatforms = new List<Actor>();
+
+            int slimeStartRow = slimePositionY / Constants.PLATFORM_HEIGHT;
+            int slimeEndRow = (slimePositionY + slimeVelocityY) / Constants.PLATFORM_HEIGHT;
+
+            for (int r = slimeStartRow; r < slimeEndRow; r++)
+                collisionPlatforms.AddRange(cast.GetActors(Constants.ROW_GROUP + r));
+            
+
+            return collisionPlatforms;
         }
     }
 }

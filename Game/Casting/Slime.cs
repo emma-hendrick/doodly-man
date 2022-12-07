@@ -42,11 +42,13 @@ namespace Unit06.Game.Casting
         {
             Point position = _body.GetPosition();
             Point velocity = _body.GetVelocity();
-            Point newVelocity = _body.GetVelocity();
-            int velocityX = newVelocity.GetX();
-            int velocityY = newVelocity.GetY();
+
+            // Apply a downwards force to the slime, gravity!
+            int velocityX = velocity.GetX();
+            int velocityY = velocity.GetY();
             Point newerVelocity = new Point(velocityX, velocityY - Constants.GRAVITY);
             _body.SetVelocity(newerVelocity);
+
             Point newPosition = position.Add(velocity);
             _body.SetPosition(newPosition);
         }
@@ -58,9 +60,8 @@ namespace Unit06.Game.Casting
         {
             Point position = _body.GetPosition();
             Point velocity = _body.GetVelocity();
-            Point newVelocity = _body.GetVelocity();
-            int velocityX = newVelocity.GetX();
-            int velocityY = newVelocity.GetY();
+            int velocityX = velocity.GetX();
+            int velocityY = velocity.GetY();
             Point newerVelocity = new Point(-5, velocityY + Constants.GRAVITY);
             _body.SetVelocity(newerVelocity);
         }
@@ -72,9 +73,8 @@ namespace Unit06.Game.Casting
         {
             Point position = _body.GetPosition();
             Point velocity = _body.GetVelocity();
-            Point newVelocity = _body.GetVelocity();
-            int velocityX = newVelocity.GetX();
-            int velocityY = newVelocity.GetY();
+            int velocityX = velocity.GetX();
+            int velocityY = velocity.GetY();
             Point newerVelocity = new Point(5, velocityY + Constants.GRAVITY);
             _body.SetVelocity(newerVelocity);
         }
@@ -86,10 +86,22 @@ namespace Unit06.Game.Casting
         {
             Point position = _body.GetPosition();
             Point velocity = _body.GetVelocity();
-            Point newVelocity = _body.GetVelocity();
-            int velocityX = newVelocity.GetX();
-            int velocityY = newVelocity.GetY();
+            int velocityX = velocity.GetX();
+            int velocityY = velocity.GetY();
             Point newerVelocity = new Point(0, velocityY + Constants.GRAVITY);
+            _body.SetVelocity(newerVelocity);
+        }
+
+        /// <summary>
+        /// Allows the slime to jump
+        /// </summary>
+        public void Jump()
+        {
+            Point position = _body.GetPosition();
+            Point velocity = _body.GetVelocity();
+            int velocityX = velocity.GetX();
+            int velocityY = velocity.GetY();
+            Point newerVelocity = new Point(velocityX, -Constants.JUMP_VELOCITY);
             _body.SetVelocity(newerVelocity);
         }
         

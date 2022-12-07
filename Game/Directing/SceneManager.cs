@@ -172,6 +172,8 @@ namespace Unit06.Game.Directing
 
             for (int r = 0; r < rows.Count; r++)
             {
+                cast.ClearActors(Constants.ROW_GROUP + r);
+
                 for (int c = 0; c < rows[r].Count; c++)
                 {
                     int x = Constants.FIELD_LEFT + c * Constants.PLATFORM_WIDTH;
@@ -194,6 +196,7 @@ namespace Unit06.Game.Directing
                         
                         Platform platform = new Platform(body, animation, points, false);
                         cast.AddActor(Constants.PLATFORM_GROUP, platform);
+                        cast.AddActor(Constants.ROW_GROUP + r, platform);
 
                     }
                 }

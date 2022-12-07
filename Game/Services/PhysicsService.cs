@@ -12,5 +12,13 @@ namespace Unit06.Game.Services
         /// <param name="agent">The second body.</param>
         /// <returns></returns>
         bool HasCollided(Body subject, Body agent);
+        
+        /// <summary>
+        /// Whether or not two bodies will collided.
+        /// </summary>
+        /// <param name="subject">The first body.</param>
+        /// <param name="agent">The second body.</param>
+        /// <returns></returns>
+        bool WillCollide(Body subject, Body agent);
     }
 }

@@ -122,11 +122,13 @@ namespace Unit06
         public static int RACKET_HEIGHT = 28;
         public static int RACKET_RATE = 6;
         public static int RACKET_VELOCITY = 7;
-        public static int JUMP_VELOCITY = 12;
+        public static int JUMP_VELOCITY = 24;
         public static int GRAVITY = 1;
 
         // PLATFORMS
         public static string PLATFORM_GROUP = "platforms";
+        public static string ROW_GROUP = "row";
+        public static string COLUMN_GROUP = "column";
         
         public static Dictionary<string, Dictionary<string, List<string>>> PLATFORM_IMAGES
             = new Dictionary<string, Dictionary<string, List<string>>>() {

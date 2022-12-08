@@ -63,7 +63,7 @@ namespace Unit06
 
         // LEVELS
         public static string LEVEL_FILE = "Assets/Data/level-{0:000}.txt";
-        public static int BASE_LEVELS = 5;
+        public static int BASE_LEVELS = 1;
 
         // ----------------------------------------------------------------------------------------- 
         // SCRIPTING CONSTANTS
@@ -209,7 +209,7 @@ namespace Unit06
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";
         public static string ENTER_TO_START = "PRESS ENTER TO START";
-        public static string PREP_TO_LAUNCH = "PREPARING TO LAUNCH";
+        public static string GET_READY = "GET READY";
         public static string WAS_GOOD_GAME = "GAME OVER";
 
     }

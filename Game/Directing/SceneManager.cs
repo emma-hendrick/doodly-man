@@ -83,7 +83,7 @@ namespace Unit06.Game.Directing
             AddCamera(cast);
             AddPlatforms(cast);
             AddSlime(cast);
-            AddDialog(cast, Constants.PREP_TO_LAUNCH);
+            AddDialog(cast, Constants.GET_READY);
 
             script.ClearAllActions();
 
@@ -100,7 +100,7 @@ namespace Unit06.Game.Directing
         {
             AddCamera(cast);
             AddSlime(cast);
-            AddDialog(cast, Constants.PREP_TO_LAUNCH);
+            AddDialog(cast, Constants.GET_READY);
 
             script.ClearAllActions();
             

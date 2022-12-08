@@ -126,6 +126,7 @@ namespace Unit06
         public static int GRAVITY = 1;
 
         // PLATFORMS
+        public static List<string> BACKGROUND_IMAGES = new List<string>(){"Assets/Images/Background/000.png"};
         public static string PLATFORM_GROUP = "platforms";
         public static string ROW_GROUP = "row";
         public static string COLUMN_GROUP = "column";

@@ -6,25 +6,24 @@ namespace Unit06.Game.Scripting
     public class SlimeState
     {
         public string CheckSlimeState(int velocity) {
-            Point velocity = body.GetVelocity();
             
-            switch (velocity) {
-                case 0:
-                    state = "cresting";
-                    break;
-                case <= 1:
-                    state = "falling";
-                    break;
-                case >= 1:
-                    state = "careening";
-                    break;
-                case >= -1 :
-                    state = "peaking";
-                    break;
-                case <= -1:
-                    state = "leaping";
-                    break;
-                return state;
+            if (velocity == 0) {
+                return "cresting";
+            }
+            if (velocity >= 1) {
+                return "careening";
+            }
+            if (velocity <= 1 && velocity >= 0) {
+                return "falling";
+            }
+            if (velocity >= -1 && velocity <= 0) {
+                return "peaking";
+            }
+            if (velocity <= -1) {
+                return "leaping";
+            }            
+            else {
+                return "leaping";
             }
         }
     }

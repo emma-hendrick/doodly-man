@@ -24,6 +24,7 @@ namespace Unit06.Game.Scripting
                 case <= -1:
                     state = "leaping";
                     break;
+                return state;
             }
         }
     }

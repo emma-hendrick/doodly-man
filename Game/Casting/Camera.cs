@@ -16,11 +16,11 @@ namespace Unit06.Game.Casting
             this._active = false;
         }
         
-        public void SetPosition(int x, int y)
+        public void SetPosition(Point position)
         {
             if (_active)
             {
-                _position = new Point(x, y);
+                _position = position;
             }
         }
         

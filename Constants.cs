@@ -124,7 +124,7 @@ namespace Unit06
         public static int RACKET_HEIGHT = 28;
         public static int RACKET_RATE = 6;
         public static int RACKET_VELOCITY = 7;
-        public static int JUMP_VELOCITY = 24;
+        public static int JUMP_VELOCITY = 30;
         public static int GRAVITY = 1;
 
         // PLATFORMS

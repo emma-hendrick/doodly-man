@@ -113,12 +113,11 @@ namespace Unit06
         public static int SLIME_HEIGHT = 28;
         public static int SLIME_RATE = 6;
         public static int SLIME_SPEED = 8;
-        public static int RACKET_WIDTH = 106;
-        public static int RACKET_HEIGHT = 28;
-        public static int RACKET_RATE = 6;
-        public static int RACKET_VELOCITY = 7;
-        public static int JUMP_VELOCITY = 30;
+        public static int JUMP_VELOCITY = 20;
+
+        // PHYSICS
         public static int GRAVITY = 1;
+        public static int TERMINAL_VELOCITY = 30;
 
         // PLATFORMS
         public static List<string> BACKGROUND_IMAGES = new List<string>(){"Assets/Images/Background/000.png"};

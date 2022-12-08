@@ -276,8 +276,12 @@ namespace Unit06.Game.Directing
                 while (!reader.EndOfStream)
                 {
                     string row = reader.ReadLine();
-                    List<string> columns = new List<string>(row.Split(',', StringSplitOptions.TrimEntries));
-                    data.Add(columns);
+                    if (row == "" || row.Substring(0, 2) == "--") {
+                    }
+                    else {
+                        List<string> columns = new List<string>(row.Split(',', StringSplitOptions.TrimEntries));
+                        data.Add(columns);
+                    }
                 }
             }
             return data;

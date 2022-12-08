@@ -1,3 +1,4 @@
+using System;
 namespace Unit06.Game.Casting
 {
     /// <summary>
@@ -109,7 +110,11 @@ namespace Unit06.Game.Casting
 
         private Point ApplyGravity(Point velocity)
         {
-            return velocity.Add(new Point(0, Constants.GRAVITY));
+            int velocityX = velocity.GetX();
+            int velocityY = velocity.GetY();
+            int newVelocityY = velocityY + Constants.GRAVITY;
+            int limitedVelocityY = Math.Abs(newVelocityY) < Constants.TERMINAL_VELOCITY ? newVelocityY: Math.Sign(velocityY) * Constants.TERMINAL_VELOCITY;
+            return new Point(velocityX, limitedVelocityY);
         }
         
     }

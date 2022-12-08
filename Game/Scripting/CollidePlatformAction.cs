@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Unit06.Game.Casting;
 using Unit06.Game.Services;
-
+using System;
 
 namespace Unit06.Game.Scripting
 {
@@ -9,11 +9,13 @@ namespace Unit06.Game.Scripting
     {
         private AudioService _audioService;
         private PhysicsService _physicsService;
+        private int _rowCount;
         
-        public CollidePlatformAction(PhysicsService physicsService, AudioService audioService)
+        public CollidePlatformAction(PhysicsService physicsService, AudioService audioService, int rowCount)
         {
             this._physicsService = physicsService;
             this._audioService = audioService;
+            this._rowCount = rowCount;
         }
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
@@ -52,12 +54,15 @@ namespace Unit06.Game.Scripting
             int slimeVelocityY = slimeBody.GetVelocity().GetY();
             List<Actor> collisionPlatforms = new List<Actor>();
 
-            int slimeStartRow = slimePositionY / Constants.PLATFORM_HEIGHT;
-            int slimeEndRow = (slimePositionY + slimeVelocityY) / Constants.PLATFORM_HEIGHT;
+            int slimeStartRow = ((slimePositionY + (Constants.HUD_MARGIN * 2) - (Constants.SCREEN_HEIGHT + Constants.FIELD_TOP)) / Constants.PLATFORM_HEIGHT) + _rowCount;
+            int slimeEndRow = ((slimePositionY + slimeVelocityY + (Constants.HUD_MARGIN * 2) - (Constants.SCREEN_HEIGHT + Constants.FIELD_TOP)) / Constants.PLATFORM_HEIGHT) + _rowCount;
 
             for (int r = slimeStartRow; r < slimeEndRow; r++)
+            {
                 collisionPlatforms.AddRange(cast.GetActors(Constants.ROW_GROUP + r));
-            
+            }
+
+            //Console.WriteLine(collisionPlatforms.Count);
 
             return collisionPlatforms;
         }

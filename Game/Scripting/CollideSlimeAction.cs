@@ -17,17 +17,6 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
-            Slime slime = (Slime)cast.GetFirstActor(Constants.SLIME_GROUP);
-            Body ballBody = ball.GetBody();
-            Body slimeBody = slime.GetBody();
-
-            if (_physicsService.HasCollided(slimeBody, ballBody))
-            {
-                ball.BounceY();
-                Sound sound = new Sound(Constants.BOUNCE_SOUND);
-                _audioService.PlaySound(sound);
-            }
         }
     }
 }

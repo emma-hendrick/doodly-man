@@ -188,8 +188,17 @@ namespace Unit06
                     { "i", new List<string>(){
                     "Assets/Images/Air/000.png",
                     }},
+                } },
+                { "g", new Dictionary<string, List<string>>() {
+                    { "g", new List<string>(){
+                    "Assets/Images/Finish/000.png",
+                    }},
                 } }
         };
+
+        // FINISH LINE
+        public static string FINISH_LINE_GROUP = "finishLine";
+
 
         public static int PLATFORM_WIDTH = 160;
         public static int PLATFORM_HEIGHT = 56;

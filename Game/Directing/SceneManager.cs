@@ -118,7 +118,7 @@ namespace Unit06.Game.Directing
 
             script.ClearAllActions();
 
-            ControlRacketAction action = new ControlRacketAction(KeyboardService);
+            ControlSlimeAction action = new ControlSlimeAction(KeyboardService);
             script.AddAction(Constants.INPUT, action);
 
             AddUpdateActions(script);    
@@ -187,9 +187,15 @@ namespace Unit06.Game.Directing
                     Animation animation = new Animation(images, Constants.PLATFORM_RATE, 0);
                     Animation background = new Animation(Constants.BACKGROUND_IMAGES, Constants.PLATFORM_RATE, 0);
                     
-                    Platform platform = new Platform(body, animation, background, points, (type == "a") ? false: true, false, false);
-                    cast.AddActor(Constants.PLATFORM_GROUP, platform);
-                    cast.AddActor(Constants.ROW_GROUP + r, platform);
+                    if (type == "g" && direction == "g"){
+                        FinishLine finishLine = new FinishLine(body, animation, background, points, false);
+                        cast.AddActor(Constants.FINISH_LINE_GROUP, finishLine);
+                    }
+                    else {
+                        Platform platform = new Platform(body, animation, background, points, (type == "a") ? false: true, false, false);
+                        cast.AddActor(Constants.PLATFORM_GROUP, platform);
+                        cast.AddActor(Constants.ROW_GROUP + r, platform);
+                    }
                 }
             }
         }
@@ -309,6 +315,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new DrawRacketAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawFinishLineAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
         }
 
@@ -319,8 +326,7 @@ namespace Unit06.Game.Directing
 
         private void AddReleaseActions(Script script)
         {
-            script.AddAction(Constants.RELEASE, new ReleaseDevicesAction(AudioService, 
-                VideoService));
+            script.AddAction(Constants.RELEASE, new ReleaseDevicesAction(AudioService, VideoService));
         }
 
         private void AddUpdateActions(Script script)
@@ -328,7 +334,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.UPDATE, new MoveCameraAction(VideoService));
             script.AddAction(Constants.UPDATE, new MoveRacketAction());
             script.AddAction(Constants.UPDATE, new CollidePlatformAction(PhysicsService, AudioService, _rows));
-            script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
+            script.AddAction(Constants.UPDATE, new CollideSlimeAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CheckOverAction());     
         }
     }

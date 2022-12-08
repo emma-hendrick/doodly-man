@@ -31,7 +31,7 @@ ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
 
 -- Finish line
 
-
+gg1, gg1, gg1, gg1, gg1, gg1, gg1, gg1
 
 -- Level body
 

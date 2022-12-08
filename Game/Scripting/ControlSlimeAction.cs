@@ -4,11 +4,11 @@ using Unit06.Game.Services;
 
 namespace Unit06.Game.Scripting
 {
-    public class ControlRacketAction : Action
+    public class ControlSlimeAction : Action
     {
         private KeyboardService _keyboardService;
 
-        public ControlRacketAction(KeyboardService keyboardService)
+        public ControlSlimeAction(KeyboardService keyboardService)
         {
             this._keyboardService = keyboardService;
         }

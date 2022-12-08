@@ -47,6 +47,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareNewGame(Cast cast, Script script)
         {
+            AddCamera(cast);
             AddStats(cast);
             AddLevel(cast);
             AddScore(cast);
@@ -77,8 +78,15 @@ namespace Unit06.Game.Directing
             ball.Release();
         }
 
+        private void ActivateCamera(Cast cast)
+        {
+            Camera camera = (Camera)cast.GetFirstActor(Constants.CAMERA_GROUP);
+            camera.Activate();
+        }
+
         private void PrepareNextLevel(Cast cast, Script script)
         {
+            AddCamera(cast);
             AddBall(cast);
             AddPlatforms(cast);
             AddRacket(cast);
@@ -97,6 +105,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareTryAgain(Cast cast, Script script)
         {
+            AddCamera(cast);
             AddBall(cast);
             AddRacket(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
@@ -112,6 +121,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareInPlay(Cast cast, Script script)
         {
+            ActivateCamera(cast);
             ActivateBall(cast);
             cast.ClearActors(Constants.DIALOG_GROUP);
 
@@ -142,6 +152,16 @@ namespace Unit06.Game.Directing
         // -----------------------------------------------------------------------------------------
         // casting methods
         // -----------------------------------------------------------------------------------------
+
+        private void AddCamera(Cast cast)
+        {
+            cast.ClearActors(Constants.CAMERA_GROUP);
+
+            Point position = new Point(0, 0);
+            Camera camera = new Camera(position, false);
+
+            cast.AddActor(Constants.CAMERA_GROUP, camera);
+        }
 
         private void AddBall(Cast cast)
         {
@@ -331,6 +351,7 @@ namespace Unit06.Game.Directing
 
         private void AddUpdateActions(Script script)
         {
+            script.AddAction(Constants.UPDATE, new MoveCameraAction(VideoService));
             script.AddAction(Constants.UPDATE, new MoveBallAction());
             script.AddAction(Constants.UPDATE, new MoveRacketAction());
             script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));

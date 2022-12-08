@@ -103,6 +103,8 @@ namespace Unit06
         public static int BALL_HEIGHT = 28;
         public static int BALL_VELOCITY = 6;
 
+        //CAMERA
+        public static string CAMERA_GROUP = "camera";
 
         // SLIME
         public static string SLIME_GROUP = "slimes";

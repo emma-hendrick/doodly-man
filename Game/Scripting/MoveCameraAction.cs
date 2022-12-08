@@ -23,7 +23,7 @@ namespace Unit06.Game.Scripting
 
             camera.SetPosition(newPosition);
 
-            ((RaylibVideoService)_videoService).SetPosition(camera.GetPosition());
+            _videoService.SetPosition(camera.GetPosition());
         }
     }
 }

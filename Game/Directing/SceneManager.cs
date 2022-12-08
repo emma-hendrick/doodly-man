@@ -216,7 +216,7 @@ namespace Unit06.Game.Directing
                     Animation animation = new Animation(images, Constants.PLATFORM_RATE, 0);
                     Animation background = new Animation(Constants.BACKGROUND_IMAGES, Constants.PLATFORM_RATE, 0);
                     
-                    Platform platform = new Platform(body, animation, background, points, (type == "a") ? false: true, false);
+                    Platform platform = new Platform(body, animation, background, points, (type == "a") ? false: true, false, false);
                     cast.AddActor(Constants.PLATFORM_GROUP, platform);
                     cast.AddActor(Constants.ROW_GROUP + r, platform);
                 }
@@ -231,7 +231,7 @@ namespace Unit06.Game.Directing
                 Constants.ALIGN_CENTER, Constants.BLACK);
             Point position = new Point(Constants.CENTER_X, Constants.CENTER_Y);
 
-            Label label = new Label(text, position);
+            Label label = new Label(text, position, true);
             cast.AddActor(Constants.DIALOG_GROUP, label);   
         }
 
@@ -243,7 +243,7 @@ namespace Unit06.Game.Directing
                 Constants.ALIGN_LEFT, Constants.BLACK);
             Point position = new Point(Constants.HUD_MARGIN, Constants.HUD_MARGIN);
 
-            Label label = new Label(text, position);
+            Label label = new Label(text, position, true);
             cast.AddActor(Constants.LEVEL_GROUP, label);
         }
 
@@ -256,7 +256,7 @@ namespace Unit06.Game.Directing
             Point position = new Point(Constants.SCREEN_WIDTH - Constants.HUD_MARGIN, 
                 Constants.HUD_MARGIN);
 
-            Label label = new Label(text, position);
+            Label label = new Label(text, position, true);
             cast.AddActor(Constants.LIVES_GROUP, label);   
         }
 
@@ -273,7 +273,7 @@ namespace Unit06.Game.Directing
         
             Body body = new Body(position, size, velocity);
             Animation animation = new Animation(Constants.SLIME_IMAGES, Constants.SLIME_RATE, 0);
-            Slime slime = new Slime(body, animation, false);
+            Slime slime = new Slime(body, animation, false, false);
         
             cast.AddActor(Constants.SLIME_GROUP, slime);
         }
@@ -286,7 +286,7 @@ namespace Unit06.Game.Directing
                 Constants.ALIGN_CENTER, Constants.BLACK);
             Point position = new Point(Constants.CENTER_X, Constants.HUD_MARGIN);
             
-            Label label = new Label(text, position);
+            Label label = new Label(text, position, true);
             cast.AddActor(Constants.SCORE_GROUP, label);   
         }
 

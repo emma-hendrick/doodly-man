@@ -34,9 +34,17 @@ namespace Unit06.Game.Scripting
                 Image image = animation.NextImage();
                 Animation backgroundAnimation = platform.GetBackground();
                 Image background = backgroundAnimation.NextImage();
-                Point position = body.GetPosition();
-                _videoService.DrawImage(background, position);
-                _videoService.DrawImage(image, position);
+                Point position = body.GetPosition(); 
+
+                if (platform.GetStaticPosition()) 
+                {
+                    _videoService.DrawStaticImage(background, position);
+                    _videoService.DrawStaticImage(image, position);
+                }
+                else {
+                    _videoService.DrawImage(background, position);
+                    _videoService.DrawImage(image, position);
+                }
             }
         }
     }

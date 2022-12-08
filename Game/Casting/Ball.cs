@@ -13,14 +13,16 @@ namespace Unit06.Game.Casting
 
         private Body _body;
         private Image _image;
+        private bool _staticPosition;
 
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Ball(Body body, Image image, bool debug = false) : base(debug)
+        public Ball(Body body, Image image, bool staticPosition, bool debug = false) : base(debug)
         {
             this._body = body;
             this._image = image;
+            this._staticPosition = staticPosition;
         }
 
         /// <summary>
@@ -65,6 +67,15 @@ namespace Unit06.Game.Casting
         public Image GetImage()
         {
             return _image;
+        }
+
+        /// <summary>
+        /// Gets the bool storing whether the position is static in the video engine.
+        /// </summary>
+        /// <returns>The bool.</returns>
+        public bool GetStaticPosition()
+        {
+            return _staticPosition;
         }
 
         /// <summary>

@@ -96,13 +96,6 @@ namespace Unit06
         public static string LIVES_FORMAT = "LIVES: {0}";
         public static string SCORE_FORMAT = "SCORE: {0}";
 
-        // BALL
-        public static string BALL_GROUP = "balls";
-        public static string BALL_IMAGE = "Assets/Images/000.png";
-        public static int BALL_WIDTH = 28;
-        public static int BALL_HEIGHT = 28;
-        public static int BALL_VELOCITY = 6;
-
         //CAMERA
         public static string CAMERA_GROUP = "camera";
 
@@ -119,12 +112,12 @@ namespace Unit06
         public static int SLIME_WIDTH = 106;
         public static int SLIME_HEIGHT = 28;
         public static int SLIME_RATE = 6;
-        public static int SLIME_VELOCITY = 7;
+        public static int SLIME_SPEED = 8;
         public static int RACKET_WIDTH = 106;
         public static int RACKET_HEIGHT = 28;
         public static int RACKET_RATE = 6;
         public static int RACKET_VELOCITY = 7;
-        public static int JUMP_VELOCITY = 24;
+        public static int JUMP_VELOCITY = 30;
         public static int GRAVITY = 1;
 
         // PLATFORMS

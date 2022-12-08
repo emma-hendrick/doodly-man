@@ -15,7 +15,8 @@ namespace Unit06.Game.Directing
         public static MouseService MouseService = new RaylibMouseService();
         public static PhysicsService PhysicsService = new RaylibPhysicsService();
         public static VideoService VideoService = new RaylibVideoService(Constants.GAME_NAME,
-            Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT, Constants.BLACK);
+            Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT, Constants.WHITE);
+        private int _rows = 0;
 
         public SceneManager()
         {
@@ -52,9 +53,8 @@ namespace Unit06.Game.Directing
             AddLevel(cast);
             AddScore(cast);
             AddLives(cast);
-            AddBall(cast);
             AddPlatforms(cast);
-            AddRacket(cast);
+            AddSlime(cast);
             AddDialog(cast, Constants.ENTER_TO_START);
 
             script.ClearAllActions();
@@ -72,12 +72,6 @@ namespace Unit06.Game.Directing
             AddReleaseActions(script);
         }
 
-        private void ActivateBall(Cast cast)
-        {
-            Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
-            ball.Release();
-        }
-
         private void ActivateCamera(Cast cast)
         {
             Camera camera = (Camera)cast.GetFirstActor(Constants.CAMERA_GROUP);
@@ -87,9 +81,8 @@ namespace Unit06.Game.Directing
         private void PrepareNextLevel(Cast cast, Script script)
         {
             AddCamera(cast);
-            AddBall(cast);
             AddPlatforms(cast);
-            AddRacket(cast);
+            AddSlime(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
             script.ClearAllActions();
@@ -106,8 +99,7 @@ namespace Unit06.Game.Directing
         private void PrepareTryAgain(Cast cast, Script script)
         {
             AddCamera(cast);
-            AddBall(cast);
-            AddRacket(cast);
+            AddSlime(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
             script.ClearAllActions();
@@ -122,7 +114,6 @@ namespace Unit06.Game.Directing
         private void PrepareInPlay(Cast cast, Script script)
         {
             ActivateCamera(cast);
-            ActivateBall(cast);
             cast.ClearActors(Constants.DIALOG_GROUP);
 
             script.ClearAllActions();
@@ -137,8 +128,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareGameOver(Cast cast, Script script)
         {
-            AddBall(cast);
-            AddRacket(cast);
+            AddSlime(cast);
             AddDialog(cast, Constants.WAS_GOOD_GAME);
 
             script.ClearAllActions();
@@ -163,24 +153,6 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.CAMERA_GROUP, camera);
         }
 
-        private void AddBall(Cast cast)
-        {
-            cast.ClearActors(Constants.BALL_GROUP);
-        
-            int x = Constants.CENTER_X - Constants.BALL_WIDTH / 2;
-            int y = Constants.SCREEN_HEIGHT - Constants.SLIME_HEIGHT - Constants.BALL_HEIGHT;
-        
-            Point position = new Point(x, y);
-            Point size = new Point(Constants.BALL_WIDTH, Constants.BALL_HEIGHT);
-            Point velocity = new Point(0, 0);
-        
-            Body body = new Body(position, size, velocity);
-            Image image = new Image(Constants.BALL_IMAGE);
-            Ball ball = new Ball(body, image, false);
-        
-            cast.AddActor(Constants.BALL_GROUP, ball);
-        }
-
         private void AddPlatforms(Cast cast)
         {
             cast.ClearActors(Constants.PLATFORM_GROUP);
@@ -190,6 +162,8 @@ namespace Unit06.Game.Directing
             string filename = string.Format(Constants.LEVEL_FILE, level);
             List<List<string>> rows = LoadLevel(filename);
 
+            _rows = rows.Count;
+
             for (int r = 0; r < rows.Count; r++)
             {
                 cast.ClearActors(Constants.ROW_GROUP + r);
@@ -197,7 +171,7 @@ namespace Unit06.Game.Directing
                 for (int c = 0; c < rows[r].Count; c++)
                 {
                     int x = Constants.FIELD_LEFT + c * Constants.PLATFORM_WIDTH;
-                    int y = Constants.FIELD_TOP + r * Constants.PLATFORM_HEIGHT;
+                    int y = Constants.FIELD_TOP + (r - rows.Count) * Constants.PLATFORM_HEIGHT + Constants.SCREEN_HEIGHT - Constants.HUD_MARGIN * 2;
 
                     string type = rows[r][c][0].ToString();
                     string direction = rows[r][c][1].ToString();
@@ -213,7 +187,7 @@ namespace Unit06.Game.Directing
                     Animation animation = new Animation(images, Constants.PLATFORM_RATE, 0);
                     Animation background = new Animation(Constants.BACKGROUND_IMAGES, Constants.PLATFORM_RATE, 0);
                     
-                    Platform platform = new Platform(body, animation, background, points, (type == "a") ? false: true, false);
+                    Platform platform = new Platform(body, animation, background, points, (type == "a") ? false: true, false, false);
                     cast.AddActor(Constants.PLATFORM_GROUP, platform);
                     cast.AddActor(Constants.ROW_GROUP + r, platform);
                 }
@@ -225,10 +199,10 @@ namespace Unit06.Game.Directing
             cast.ClearActors(Constants.DIALOG_GROUP);
 
             Text text = new Text(message, Constants.FONT_FILE, Constants.FONT_SIZE, 
-                Constants.ALIGN_CENTER, Constants.WHITE);
+                Constants.ALIGN_CENTER, Constants.BLACK);
             Point position = new Point(Constants.CENTER_X, Constants.CENTER_Y);
 
-            Label label = new Label(text, position);
+            Label label = new Label(text, position, true);
             cast.AddActor(Constants.DIALOG_GROUP, label);   
         }
 
@@ -237,10 +211,10 @@ namespace Unit06.Game.Directing
             cast.ClearActors(Constants.LEVEL_GROUP);
 
             Text text = new Text(Constants.LEVEL_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
-                Constants.ALIGN_LEFT, Constants.WHITE);
+                Constants.ALIGN_LEFT, Constants.BLACK);
             Point position = new Point(Constants.HUD_MARGIN, Constants.HUD_MARGIN);
 
-            Label label = new Label(text, position);
+            Label label = new Label(text, position, true);
             cast.AddActor(Constants.LEVEL_GROUP, label);
         }
 
@@ -249,15 +223,15 @@ namespace Unit06.Game.Directing
             cast.ClearActors(Constants.LIVES_GROUP);
 
             Text text = new Text(Constants.LIVES_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
-                Constants.ALIGN_RIGHT, Constants.WHITE);
+                Constants.ALIGN_RIGHT, Constants.BLACK);
             Point position = new Point(Constants.SCREEN_WIDTH - Constants.HUD_MARGIN, 
                 Constants.HUD_MARGIN);
 
-            Label label = new Label(text, position);
+            Label label = new Label(text, position, true);
             cast.AddActor(Constants.LIVES_GROUP, label);   
         }
 
-        private void AddRacket(Cast cast)
+        private void AddSlime(Cast cast)
         {
             cast.ClearActors(Constants.SLIME_GROUP);
         
@@ -270,7 +244,7 @@ namespace Unit06.Game.Directing
         
             Body body = new Body(position, size, velocity);
             Animation animation = new Animation(Constants.SLIME_IMAGES, Constants.SLIME_RATE, 0);
-            Slime slime = new Slime(body, animation, false);
+            Slime slime = new Slime(body, animation, false, false);
         
             cast.AddActor(Constants.SLIME_GROUP, slime);
         }
@@ -280,10 +254,10 @@ namespace Unit06.Game.Directing
             cast.ClearActors(Constants.SCORE_GROUP);
 
             Text text = new Text(Constants.SCORE_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
-                Constants.ALIGN_CENTER, Constants.WHITE);
+                Constants.ALIGN_CENTER, Constants.BLACK);
             Point position = new Point(Constants.CENTER_X, Constants.HUD_MARGIN);
             
-            Label label = new Label(text, position);
+            Label label = new Label(text, position, true);
             cast.AddActor(Constants.SCORE_GROUP, label);   
         }
 
@@ -327,10 +301,9 @@ namespace Unit06.Game.Directing
         private void AddOutputActions(Script script)
         {
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawBallAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawPlatformsAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawRacketAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
         }
@@ -349,10 +322,8 @@ namespace Unit06.Game.Directing
         private void AddUpdateActions(Script script)
         {
             script.AddAction(Constants.UPDATE, new MoveCameraAction(VideoService));
-            script.AddAction(Constants.UPDATE, new MoveBallAction());
             script.AddAction(Constants.UPDATE, new MoveRacketAction());
-            script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
-            script.AddAction(Constants.UPDATE, new CollidePlatformAction(PhysicsService, AudioService));
+            script.AddAction(Constants.UPDATE, new CollidePlatformAction(PhysicsService, AudioService, _rows));
             script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CheckOverAction());     
         }

@@ -12,14 +12,14 @@ namespace Unit06.Game.Services
         void ClearBuffer();
 
         /// <summary>
-        /// Draws the given image at the given position.
+        /// Draws the given image at the given position, relative to the camera.
         /// </summary>
         /// <param name="image">The given image.</param>
         /// <param name="position">The given position.</param>
         void DrawImage(Image image, Point position);
 
         /// <summary>
-        /// Draws a rectangle at the given position.
+        /// Draws a rectangle at the given position, relative to the camera.
         /// </summary>
         /// <param name="size">The given size.</param>
         /// <param name="position">The given position.</param>
@@ -28,11 +28,34 @@ namespace Unit06.Game.Services
         void DrawRectangle(Point size, Point position, Casting.Color color, bool filled);
 
         /// <summary>
-        /// Draws the given text at the given position.
+        /// Draws the given text at the given position, relative to the camera.
         /// </summary>
         /// <param name="text">The given text.</param>
         /// <param name="position">The given position.</param>
         void DrawText(Text text, Point position);
+
+        /// <summary>
+        /// Draws the given image at the given position, not relative to the camera.
+        /// </summary>
+        /// <param name="image">The given image.</param>
+        /// <param name="position">The given position.</param>
+        void DrawStaticImage(Image image, Point position);
+
+        /// <summary>
+        /// Draws a rectangle at the given position, not relative to the camera.
+        /// </summary>
+        /// <param name="size">The given size.</param>
+        /// <param name="position">The given position.</param>
+        /// <param name="color">The given color.</param>
+        /// <param name="filled">Whether or not the rectangle should be filled.</param>
+        void DrawStaticRectangle(Point size, Point position, Casting.Color color, bool filled);
+
+        /// <summary>
+        /// Draws the given text at the given position, not relative to the camera.
+        /// </summary>
+        /// <param name="text">The given text.</param>
+        /// <param name="position">The given position.</param>
+        void DrawStaticText(Text text, Point position);
 
         /// <summary>
         /// Swaps the buffers, displaying everything that has been drawn on the screen.
@@ -76,5 +99,10 @@ namespace Unit06.Game.Services
         /// Unloads the cached fonts.
         /// </summary>
         void UnloadImages();
+
+        /// <summary>
+        /// Sets the position to draw from, commonly used with some sort of camera class
+        /// </summary>
+        void SetPosition(Point position);
     }
 }

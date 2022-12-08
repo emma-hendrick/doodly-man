@@ -10,17 +10,19 @@ namespace Unit06.Game.Casting
         private Animation _background;
         private int _points;
         private bool _collideable;
+        private bool _staticPosition;
 
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Platform(Body body, Animation animation, Animation background, int points, bool collideable, bool debug) : base(debug)
+        public Platform(Body body, Animation animation, Animation background, int points, bool collideable, bool staticPosition, bool debug) : base(debug)
         {
             this._body = body;
             this._animation = animation;
             this._background = background;
             this._points = points;
             this._collideable = collideable;
+            this._staticPosition = staticPosition;
         }
 
         /// <summary>
@@ -66,6 +68,15 @@ namespace Unit06.Game.Casting
         public int GetPoints()
         {
             return _points;
+        }
+
+        /// <summary>
+        /// Gets the bool storing whether the position is static in the video engine.
+        /// </summary>
+        /// <returns>The bool.</returns>
+        public bool GetStaticPosition()
+        {
+            return _staticPosition;
         }
         
     }

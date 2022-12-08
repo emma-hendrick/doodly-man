@@ -33,7 +33,14 @@ namespace Unit06.Game.Scripting
             Text text = label.GetText();
             text.SetValue(theValueToDisplay);
             Point position = label.GetPosition();
-            _videoService.DrawText(text, position);
+
+            if (label.GetStaticPosition()) 
+            {
+                _videoService.DrawStaticText(text, position);
+            }
+            else {
+                _videoService.DrawText(text, position);
+            }
         }
     }
 }

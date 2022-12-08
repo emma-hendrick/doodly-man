@@ -16,7 +16,14 @@ namespace Unit06.Game.Scripting
             Camera camera = (Camera)cast.GetFirstActor(Constants.CAMERA_GROUP);
             camera.ScrollDown();
 
-            ((RaylibVideoService)_videoService).SetPosition(camera.GetPosition());
+            Slime slime = (Slime)cast.GetFirstActor(Constants.SLIME_GROUP);
+            Point slimePosition = slime.GetBody().GetPosition();
+
+            Point newPosition = new Point(0, (Constants.SCREEN_HEIGHT / 2) - slimePosition.GetY());
+
+            camera.SetPosition(newPosition);
+
+            _videoService.SetPosition(camera.GetPosition());
         }
     }
 }

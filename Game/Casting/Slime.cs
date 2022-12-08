@@ -7,14 +7,16 @@ namespace Unit06.Game.Casting
     {
         private Body _body;
         private Animation _animation;
+        private bool _staticPosition;
         
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Slime(Body body, Animation animation, bool debug) : base(debug)
+        public Slime(Body body, Animation animation, bool staticPosition, bool debug) : base(debug)
         {
             this._body = body;
             this._animation = animation;
+            this._staticPosition = staticPosition;
         }
 
         /// <summary>
@@ -33,6 +35,15 @@ namespace Unit06.Game.Casting
         public Body GetBody()
         {
             return _body;
+        }
+
+        /// <summary>
+        /// Gets the bool storing whether the position is static in the video engine.
+        /// </summary>
+        /// <returns>The bool.</returns>
+        public bool GetStaticPosition()
+        {
+            return _staticPosition;
         }
 
         /// <summary>
@@ -57,7 +68,7 @@ namespace Unit06.Game.Casting
             Point velocity = _body.GetVelocity();
             int velocityX = velocity.GetX();
             int velocityY = velocity.GetY();
-            Point newerVelocity = ApplyGravity(new Point(-5, velocityY));
+            Point newerVelocity = ApplyGravity(new Point(-Constants.SLIME_SPEED, velocityY));
             _body.SetVelocity(newerVelocity);
         }
 
@@ -69,7 +80,7 @@ namespace Unit06.Game.Casting
             Point velocity = _body.GetVelocity();
             int velocityX = velocity.GetX();
             int velocityY = velocity.GetY();
-            Point newerVelocity = ApplyGravity(new Point(5, velocityY));
+            Point newerVelocity = ApplyGravity(new Point(Constants.SLIME_SPEED, velocityY));
             _body.SetVelocity(newerVelocity);
         }
 

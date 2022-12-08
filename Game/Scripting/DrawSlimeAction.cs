@@ -29,7 +29,14 @@ namespace Unit06.Game.Scripting
             Animation animation = slime.GetAnimation();
             Image image = animation.NextImage();
             Point position = body.GetPosition();
-            _videoService.DrawImage(image, position);
+
+            if (slime.GetStaticPosition()) 
+            {
+                _videoService.DrawStaticImage(image, position);
+            }
+            else {
+                _videoService.DrawImage(image, position);
+            }
         }
     }
 }

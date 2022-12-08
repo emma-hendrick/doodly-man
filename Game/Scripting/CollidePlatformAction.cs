@@ -31,8 +31,14 @@ namespace Unit06.Game.Scripting
                 Body platformBody = platform.GetBody();
 
                 // Only jump when falling, and about to collide with a platform
-                if (_physicsService.WillCollide(slimeBody, platformBody) && slimeVelocityY > 0)
+                if (platform.CanCollide() && _physicsService.WillCollide(slimeBody, platformBody) && slimeVelocityY > 0)
                 {
+                    int slimePositionX = slimeBody.GetPosition().GetX();
+                    int platformPositionY = platformBody.GetPosition().GetY();
+                    int platformSizeY = platformBody.GetSize().GetY();
+                    Point newPosition = new Point(slimePositionX, platformPositionY - platformSizeY);
+
+                    slimeBody.SetPosition(newPosition);
                     slime.Jump();
                     Sound sound = new Sound(Constants.BOUNCE_SOUND);
                     _audioService.PlaySound(sound);
@@ -40,7 +46,7 @@ namespace Unit06.Game.Scripting
             }
         }
 
-        public List<Actor> GetCollisionPlatforms(Cast cast, Body slimeBody)
+        private List<Actor> GetCollisionPlatforms(Cast cast, Body slimeBody)
         {
             int slimePositionY = slimeBody.GetPosition().GetY();
             int slimeVelocityY = slimeBody.GetVelocity().GetY();

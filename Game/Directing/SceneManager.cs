@@ -204,21 +204,18 @@ namespace Unit06.Game.Directing
                     int frames = (int)Char.GetNumericValue(rows[r][c][2]);
                     int points = Constants.PLATFORM_POINTS;
 
-                    if (type != "a") { // As long as it isn't air, add it.
+                    Point position = new Point(x, y);
+                    Point size = new Point(Constants.PLATFORM_WIDTH, Constants.PLATFORM_HEIGHT);
+                    Point velocity = new Point(0, 0);
+                    List<string> images = Constants.PLATFORM_IMAGES[type][direction].GetRange(0, frames);
 
-                        Point position = new Point(x, y);
-                        Point size = new Point(Constants.PLATFORM_WIDTH, Constants.PLATFORM_HEIGHT);
-                        Point velocity = new Point(0, 0);
-                        List<string> images = Constants.PLATFORM_IMAGES[type][direction].GetRange(0, frames);
-
-                        Body body = new Body(position, size, velocity);
-                        Animation animation = new Animation(images, Constants.PLATFORM_RATE, 0);
-                        
-                        Platform platform = new Platform(body, animation, points, false);
-                        cast.AddActor(Constants.PLATFORM_GROUP, platform);
-                        cast.AddActor(Constants.ROW_GROUP + r, platform);
-
-                    }
+                    Body body = new Body(position, size, velocity);
+                    Animation animation = new Animation(images, Constants.PLATFORM_RATE, 0);
+                    Animation background = new Animation(Constants.BACKGROUND_IMAGES, Constants.PLATFORM_RATE, 0);
+                    
+                    Platform platform = new Platform(body, animation, background, points, (type == "a") ? false: true, false);
+                    cast.AddActor(Constants.PLATFORM_GROUP, platform);
+                    cast.AddActor(Constants.ROW_GROUP + r, platform);
                 }
             }
         }

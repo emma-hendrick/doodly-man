@@ -63,7 +63,7 @@ namespace Unit06
 
         // LEVELS
         public static string LEVEL_FILE = "Assets/Data/level-{0:000}.txt";
-        public static int BASE_LEVELS = 5;
+        public static int BASE_LEVELS = 1;
 
         // ----------------------------------------------------------------------------------------- 
         // SCRIPTING CONSTANTS
@@ -96,13 +96,8 @@ namespace Unit06
         public static string LIVES_FORMAT = "LIVES: {0}";
         public static string SCORE_FORMAT = "SCORE: {0}";
 
-        // BALL
-        public static string BALL_GROUP = "balls";
-        public static string BALL_IMAGE = "Assets/Images/000.png";
-        public static int BALL_WIDTH = 28;
-        public static int BALL_HEIGHT = 28;
-        public static int BALL_VELOCITY = 6;
-
+        //CAMERA
+        public static string CAMERA_GROUP = "camera";
 
         // SLIME
         public static string SLIME_GROUP = "slimes";
@@ -117,13 +112,12 @@ namespace Unit06
         public static int SLIME_WIDTH = 106;
         public static int SLIME_HEIGHT = 28;
         public static int SLIME_RATE = 6;
-        public static int SLIME_VELOCITY = 7;
-        public static int RACKET_WIDTH = 106;
-        public static int RACKET_HEIGHT = 28;
-        public static int RACKET_RATE = 6;
-        public static int RACKET_VELOCITY = 7;
-        public static int JUMP_VELOCITY = 24;
+        public static int SLIME_SPEED = 8;
+        public static int JUMP_VELOCITY = 20;
+
+        // PHYSICS
         public static int GRAVITY = 1;
+        public static int TERMINAL_VELOCITY = 30;
 
         // PLATFORMS
         public static List<string> BACKGROUND_IMAGES = new List<string>(){"Assets/Images/Background/000.png"};
@@ -194,8 +188,17 @@ namespace Unit06
                     { "i", new List<string>(){
                     "Assets/Images/Air/000.png",
                     }},
+                } },
+                { "g", new Dictionary<string, List<string>>() {
+                    { "g", new List<string>(){
+                    "Assets/Images/Finish/000.png",
+                    }},
                 } }
         };
+
+        // FINISH LINE
+        public static string FINISH_LINE_GROUP = "finishLine";
+
 
         public static int PLATFORM_WIDTH = 160;
         public static int PLATFORM_HEIGHT = 56;
@@ -206,7 +209,7 @@ namespace Unit06
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";
         public static string ENTER_TO_START = "PRESS ENTER TO START";
-        public static string PREP_TO_LAUNCH = "PREPARING TO LAUNCH";
+        public static string GET_READY = "GET READY";
         public static string WAS_GOOD_GAME = "GAME OVER";
 
     }

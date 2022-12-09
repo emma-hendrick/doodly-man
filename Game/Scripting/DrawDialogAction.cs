@@ -22,7 +22,14 @@ namespace Unit06.Game.Scripting
                 Label label = (Label)actor;
                 Text text = label.GetText();
                 Point position = label.GetPosition();
-                _videoService.DrawText(text, position);
+
+                if (label.GetStaticPosition()) 
+                {
+                    _videoService.DrawStaticText(text, position);
+                }
+                else {
+                    _videoService.DrawText(text, position);
+                }
             }
         }
     }

@@ -3,6 +3,7 @@ using System.IO;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using Raylib_cs;
+using Unit06.Game.Casting;
 
 
 namespace Unit06.Game.Services
@@ -13,7 +14,8 @@ namespace Unit06.Game.Services
         private int _height;
         private string _title;
         private int _width;
-        
+        private Point _position;
+
         private Dictionary<string, Raylib_cs.Font> fonts
             = new Dictionary<string, Raylib_cs.Font>();
         
@@ -26,6 +28,7 @@ namespace Unit06.Game.Services
             this._width = width;
             this._height = height;
             this._color = color;
+            this._position = new Point(0, 0);
         }
         /// </inheritdoc>
         public void ClearBuffer()
@@ -45,13 +48,72 @@ namespace Unit06.Game.Services
                 textures[filename] = loaded;
             }
             Raylib_cs.Texture2D texture = textures[filename];
+            int x = position.GetX() + _position.GetX();
+            int y = position.GetY() + _position.GetY();
+            Raylib.DrawTexture(texture, x, y, Raylib_cs.Color.WHITE);
+        }
+
+        /// </inheritdoc>
+        public void DrawRectangle(Casting.Point size, Casting.Point position, Casting.Color color,
+            bool filled = false)
+        {
+            int x = position.GetX() + _position.GetX();
+            int y = position.GetY() + _position.GetY();
+            int width = size.GetX();
+            int height = size.GetY();
+            Raylib_cs.Color raylibColor = ToRaylibColor(color);
+
+            if (filled)
+            {
+                Raylib.DrawRectangle(x, y, width, height, raylibColor);
+            }
+            else
+            {
+                Raylib.DrawRectangleLines(x, y, width, height, raylibColor);
+            }
+        }
+
+        /// </inheritdoc>
+        public void DrawText(Casting.Text text, Casting.Point position)
+        {
+            string value = text.GetValue();
+            int size = text.GetSize();
+            int alignment = text.GetAlignment();
+            Casting.Color color = text.GetColor();
+            int x = position.GetX() + _position.GetX();
+            int y = position.GetY() + _position.GetY();
+            
+            string filename = text.GetFontFile();
+            if (!fonts.ContainsKey(filename))
+            {
+                Raylib_cs.Font loaded = Raylib.LoadFont(filename);
+                fonts[filename] = loaded;
+            }
+            Raylib_cs.Font font = fonts[filename];
+
+            x = RecalcuteTextPosition(font, value, size, x, alignment);
+            Raylib_cs.Color raylibColor = ToRaylibColor(color);
+            Vector2 vector = new Vector2(x, y);
+            Raylib.DrawTextEx(font, value, vector, size, 0, raylibColor);
+        }
+
+        /// </inheritdoc>
+        public void DrawStaticImage(Casting.Image image, Casting.Point position)
+        {
+            string filename = image.GetFilename();
+            if (!textures.ContainsKey(filename))
+            {
+                Raylib_cs.Texture2D loaded = Raylib.LoadTexture(filename);
+                textures[filename] = loaded;
+            }
+            Raylib_cs.Texture2D texture = textures[filename];
             int x = position.GetX();
             int y = position.GetY();
             Raylib.DrawTexture(texture, x, y, Raylib_cs.Color.WHITE);
         }
 
         /// </inheritdoc>
-        public void DrawRectangle(Casting.Point size, Casting.Point position, Casting.Color color,
+        public void DrawStaticRectangle(Casting.Point size, Casting.Point position, Casting.Color color,
             bool filled = false)
         {
             int x = position.GetX();
@@ -71,7 +133,7 @@ namespace Unit06.Game.Services
         }
 
         /// </inheritdoc>
-        public void DrawText(Casting.Text text, Casting.Point position)
+        public void DrawStaticText(Casting.Text text, Casting.Point position)
         {
             string value = text.GetValue();
             int size = text.GetSize();
@@ -194,5 +256,9 @@ namespace Unit06.Game.Services
                 System.Convert.ToByte(255));
         }
 
+        public void SetPosition(Point position)
+        {
+            _position = new Point(position.GetX(), position.GetY());
+        }
     }
 }

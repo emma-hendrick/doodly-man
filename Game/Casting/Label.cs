@@ -7,14 +7,16 @@ namespace Unit06.Game.Casting
     {
         private Text _text;
         private Point _position;
+        private bool _staticPosition;
 
         /// <summary>
         /// Constructs a new instance of Label.
         /// </summary>
-        public Label(Text text, Point position) : base(false)
+        public Label(Text text, Point position, bool staticPosition) : base(false)
         {
             this._text = text;
             this._position = position;
+            this._staticPosition = staticPosition;
         }
 
         /// <summary>
@@ -33,6 +35,15 @@ namespace Unit06.Game.Casting
         public Point GetPosition()
         {
             return _position;
+        }
+
+        /// <summary>
+        /// Gets the bool storing whether the position is static in the video engine.
+        /// </summary>
+        /// <returns>The bool.</returns>
+        public bool GetStaticPosition()
+        {
+            return _staticPosition;
         }
     }
 }

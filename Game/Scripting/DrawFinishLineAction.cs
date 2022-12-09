@@ -32,7 +32,7 @@ namespace Unit06.Game.Scripting
 
                 Animation animation = finishLine.GetAnimation();
                 Image image = animation.NextImage();
-                Animation backgroundAnimation = finishLine.GetAnimation();
+                Animation backgroundAnimation = finishLine.GetBackground();
                 Image background = backgroundAnimation.NextImage();
                 Point position = body.GetPosition(); 
 

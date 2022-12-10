@@ -156,6 +156,7 @@ namespace Unit06.Game.Directing
         private void AddPlatforms(Cast cast)
         {
             cast.ClearActors(Constants.PLATFORM_GROUP);
+            cast.ClearActors(Constants.FINISH_LINE_GROUP);
 
             Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
             int level = stats.GetLevel() % Constants.BASE_LEVELS;

@@ -1,0 +1,68 @@
+-- You can use comments like this
+
+
+-- Border at the top of the level,
+-- so that the player can't see the
+-- blank white screen on top.
+
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+
+
+-- Finish line
+
+gg1, gg1, gg1, gg1, gg1, gg1, gg1, gg1
+
+
+-- Level body
+
+
+
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, pl1, pr1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, fo8, ai1, ai1, fo8, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+pl1, pr1, ai1, ai1, ai1, ai1, pl1, pr1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, pl1, pr1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+
+
+-- Level base
+
+pl1, pc1, pc1, pc1, pc1, pc1, pc1, pr1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1

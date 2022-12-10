@@ -59,6 +59,8 @@ namespace Unit06.Game.Directing
             AddErasers(cast);
             AddDialog(cast, Constants.ENTER_TO_START);
 
+            VideoService.SetPosition(new Point(0, 0));
+
             script.ClearAllActions();
             AddInitActions(script);
             AddLoadActions(script);
@@ -97,6 +99,8 @@ namespace Unit06.Game.Directing
             AddErasers(cast);
             AddDialog(cast, Constants.GET_READY);
 
+            VideoService.SetPosition(new Point(0, 0));
+
             script.ClearAllActions();
 
             TimedChangeSceneAction ta = new TimedChangeSceneAction(Constants.IN_PLAY, 2, DateTime.Now);
@@ -115,6 +119,8 @@ namespace Unit06.Game.Directing
             AddErasers(cast);
             AddDialog(cast, Constants.GET_READY);
 
+            VideoService.SetPosition(new Point(0, 0));
+
             script.ClearAllActions();
             
             TimedChangeSceneAction ta = new TimedChangeSceneAction(Constants.IN_PLAY, 2, DateTime.Now);
@@ -129,6 +135,8 @@ namespace Unit06.Game.Directing
             ActivateCamera(cast);
             ActivateErasers(cast);
             cast.ClearActors(Constants.DIALOG_GROUP);
+
+            VideoService.SetPosition(new Point(0, 0));
 
             script.ClearAllActions();
 
@@ -145,6 +153,8 @@ namespace Unit06.Game.Directing
             AddSlime(cast);
             AddErasers(cast);
             AddDialog(cast, Constants.WAS_GOOD_GAME);
+
+            VideoService.SetPosition(new Point(0, 0));
 
             script.ClearAllActions();
 

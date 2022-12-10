@@ -379,7 +379,6 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.UPDATE, new MoveEraserAction());
             script.AddAction(Constants.UPDATE, new CollidePlatformAction(PhysicsService, AudioService, _rows));
             script.AddAction(Constants.UPDATE, new CollideSlimeAction(PhysicsService, AudioService));
-            script.AddAction(Constants.UPDATE, new CheckOverAction());     
         }
     }
 }

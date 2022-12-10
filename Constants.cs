@@ -98,6 +98,7 @@ namespace Unit06
 
         //CAMERA
         public static string CAMERA_GROUP = "camera";
+        public static int SCROLL_SPEED = 3;
 
         // SLIME
         public static string SLIME_GROUP = "slimes";

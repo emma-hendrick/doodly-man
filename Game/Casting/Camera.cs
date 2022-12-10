@@ -40,7 +40,7 @@ namespace Unit06.Game.Casting
             {
                 int X = _lowPosition.GetX();
                 int Y = _lowPosition.GetY();
-                _lowPosition = new Point(X, Y - 1);
+                _lowPosition = new Point(X, Y - Constants.SCROLL_SPEED);
             }
         }
 

@@ -26,7 +26,12 @@ namespace Unit06.Game.Casting
         
         public Point GetPosition()
         {
-            return _lowPosition.GetY() > _position.GetY() ? _lowPosition: _position;
+            return _lowPosition.GetY() < _position.GetY() ? _lowPosition: _position;
+        }
+        
+        public Point GetLowPosition()
+        {
+            return _lowPosition;
         }
 
         public void ScrollDown()
@@ -35,7 +40,7 @@ namespace Unit06.Game.Casting
             {
                 int X = _lowPosition.GetX();
                 int Y = _lowPosition.GetY();
-                _lowPosition = new Point(X, Y + 1);
+                _lowPosition = new Point(X, Y - 1);
             }
         }
 

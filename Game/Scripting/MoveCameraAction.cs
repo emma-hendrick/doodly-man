@@ -19,7 +19,7 @@ namespace Unit06.Game.Scripting
             Slime slime = (Slime)cast.GetFirstActor(Constants.SLIME_GROUP);
             Point slimePosition = slime.GetBody().GetPosition();
 
-            Point newPosition = new Point(0, (Constants.SCREEN_HEIGHT / 2) - slimePosition.GetY());
+            Point newPosition = new Point(0, slimePosition.GetY() - (Constants.SCREEN_HEIGHT / 2));
 
             camera.SetPosition(newPosition);
 

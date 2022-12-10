@@ -85,5 +85,10 @@ namespace Unit06.Game.Casting
             int y = this._y * factor;
             return new Point(x, y);
         }
+
+        public override string ToString()
+        {
+            return "(" + _x + ", " + _y + ")";
+        }
     }
 }

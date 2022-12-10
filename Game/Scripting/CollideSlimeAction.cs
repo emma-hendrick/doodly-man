@@ -1,6 +1,7 @@
 using Unit06.Game.Casting;
 using Unit06.Game.Services;
 using System.Collections.Generic;
+using System;
 
 namespace Unit06.Game.Scripting
 {
@@ -31,6 +32,21 @@ namespace Unit06.Game.Scripting
                     stats.AddLevel();
                     callback.OnNext(Constants.NEXT_LEVEL);
                 }
+            } 
+
+            Point cameraPositionTransformation = new Point(Constants.CENTER_X, Constants.SCREEN_HEIGHT);
+            Camera camera = (Camera)cast.GetFirstActor(Constants.CAMERA_GROUP);
+
+            Point slimePosition = slimeBody.GetPosition();
+            Point cameraPosition = camera.GetLowPosition().Add(cameraPositionTransformation);
+
+            if (slimePosition.GetY() > cameraPosition.GetY())
+            {
+                
+                Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
+                stats.RemoveLife();
+                callback.OnNext(Constants.TRY_AGAIN);
+
             }
 
         }

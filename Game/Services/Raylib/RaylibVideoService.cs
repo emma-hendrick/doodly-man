@@ -49,7 +49,7 @@ namespace Unit06.Game.Services
             }
             Raylib_cs.Texture2D texture = textures[filename];
             int x = position.GetX() + _position.GetX();
-            int y = position.GetY() + _position.GetY();
+            int y = position.GetY() - _position.GetY();
             Raylib.DrawTexture(texture, x, y, Raylib_cs.Color.WHITE);
         }
 
@@ -58,7 +58,7 @@ namespace Unit06.Game.Services
             bool filled = false)
         {
             int x = position.GetX() + _position.GetX();
-            int y = position.GetY() + _position.GetY();
+            int y = position.GetY() - _position.GetY();
             int width = size.GetX();
             int height = size.GetY();
             Raylib_cs.Color raylibColor = ToRaylibColor(color);
@@ -81,7 +81,7 @@ namespace Unit06.Game.Services
             int alignment = text.GetAlignment();
             Casting.Color color = text.GetColor();
             int x = position.GetX() + _position.GetX();
-            int y = position.GetY() + _position.GetY();
+            int y = position.GetY() - _position.GetY();
             
             string filename = text.GetFontFile();
             if (!fonts.ContainsKey(filename))

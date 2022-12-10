@@ -1,4 +1,5 @@
 using Unit06.Game.Casting;
+using System.Collections.Generic;
 
 namespace Unit06.Game.Scripting
 {
@@ -10,24 +11,33 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Eraser eraser = (Eraser)cast.GetFirstActor(Constants.SLIME_GROUP);
-            Body body = eraser.GetBody();
-            Point position = body.GetPosition();
-            Point velocity = body.GetVelocity();
-            int x = position.GetX();
 
-            position = position.Add(velocity);
-            
-            if (x < 0)
+            List<Actor> actors = cast.GetActors(Constants.ERASER_GROUP);
+            foreach (Actor actor in actors)
             {
-                eraser.Bounce();
-            }
-            else if (x > Constants.SCREEN_WIDTH - Constants.SLIME_WIDTH)
-            {
-                eraser.Bounce();
-            }
+                Eraser eraser = (Eraser)actor;
 
-            body.SetPosition(position);       
+                if (eraser.GetActive())
+                {
+                    Body body = eraser.GetBody();
+                    Point position = body.GetPosition();
+                    int x = position.GetX();
+                    
+                    if (x < 0)
+                    {
+                        eraser.Bounce();
+                    }
+                    else if (x > Constants.SCREEN_WIDTH - Constants.ERASER_WIDTH)
+                    {
+                        eraser.Bounce();
+                    }
+                    
+                    Point velocity = body.GetVelocity();
+                    position = position.Add(velocity);
+
+                    body.SetPosition(position);
+                }       
+            }
         }
     }
 }

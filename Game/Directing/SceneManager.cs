@@ -17,6 +17,7 @@ namespace Unit06.Game.Directing
         public static VideoService VideoService = new RaylibVideoService(Constants.GAME_NAME,
             Constants.SCREEN_WIDTH, Constants.SCREEN_HEIGHT, Constants.WHITE);
         private int _rows = 0;
+        private Random _rnd = new Random();
 
         public SceneManager()
         {
@@ -55,6 +56,7 @@ namespace Unit06.Game.Directing
             AddLives(cast);
             AddPlatforms(cast);
             AddSlime(cast);
+            AddErasers(cast);
             AddDialog(cast, Constants.ENTER_TO_START);
 
             script.ClearAllActions();
@@ -78,11 +80,21 @@ namespace Unit06.Game.Directing
             camera.Activate();
         }
 
+        private void ActivateErasers(Cast cast)
+        {
+            List<Actor> actors = cast.GetActors(Constants.ERASER_GROUP);
+            foreach (Actor actor in actors)
+            {
+                ((Eraser)actor).Activate();
+            }
+        }
+
         private void PrepareNextLevel(Cast cast, Script script)
         {
             AddCamera(cast);
             AddPlatforms(cast);
             AddSlime(cast);
+            AddErasers(cast);
             AddDialog(cast, Constants.GET_READY);
 
             script.ClearAllActions();
@@ -100,6 +112,7 @@ namespace Unit06.Game.Directing
         {
             AddCamera(cast);
             AddSlime(cast);
+            AddErasers(cast);
             AddDialog(cast, Constants.GET_READY);
 
             script.ClearAllActions();
@@ -114,6 +127,7 @@ namespace Unit06.Game.Directing
         private void PrepareInPlay(Cast cast, Script script)
         {
             ActivateCamera(cast);
+            ActivateErasers(cast);
             cast.ClearActors(Constants.DIALOG_GROUP);
 
             script.ClearAllActions();
@@ -129,6 +143,7 @@ namespace Unit06.Game.Directing
         private void PrepareGameOver(Cast cast, Script script)
         {
             AddSlime(cast);
+            AddErasers(cast);
             AddDialog(cast, Constants.WAS_GOOD_GAME);
 
             script.ClearAllActions();
@@ -256,6 +271,32 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.SLIME_GROUP, slime);
         }
 
+        private void AddErasers(Cast cast)
+        {
+            cast.ClearActors(Constants.ERASER_GROUP);
+        
+            for (int index = 0; index < Constants.ERASER_COUNT; index++)
+            {
+
+                int x = _rnd.Next(Constants.SCREEN_WIDTH);
+                int y = Constants.SCREEN_HEIGHT - Constants.ERASER_HEIGHT;
+            
+                Point position = new Point(x, y);
+                Point size = new Point(Constants.SLIME_WIDTH, Constants.SLIME_HEIGHT);
+
+                int velocityX = (_rnd.Next(Constants.ERASER_MAX_SPEED - Constants.ERASER_MIN_SPEED) + Constants.ERASER_MIN_SPEED)
+                                * Math.Sign(_rnd.Next(2) - 0.5);
+                Point velocity = new Point(velocityX, 0);
+            
+                Body body = new Body(position, size, velocity);
+                Animation animation = new Animation(Constants.ERASER_IMAGES, Constants.ERASER_RATE, 0);
+                Eraser eraser = new Eraser(body, animation, false);
+            
+                cast.AddActor(Constants.ERASER_GROUP, eraser);
+
+            }
+        }
+
         private void AddScore(Cast cast)
         {
             cast.ClearActors(Constants.SCORE_GROUP);
@@ -295,7 +336,7 @@ namespace Unit06.Game.Directing
         }
 
         // -----------------------------------------------------------------------------------------
-        // scriptig methods
+        // scripting methods
         // -----------------------------------------------------------------------------------------
 
         private void AddInitActions(Script script)
@@ -313,8 +354,9 @@ namespace Unit06.Game.Directing
         {
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawPlatformsAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawRacketAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawFinishLineAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawSlimeAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawErasersAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
@@ -334,6 +376,7 @@ namespace Unit06.Game.Directing
         {
             script.AddAction(Constants.UPDATE, new MoveCameraAction(VideoService));
             script.AddAction(Constants.UPDATE, new MoveRacketAction());
+            script.AddAction(Constants.UPDATE, new MoveEraserAction());
             script.AddAction(Constants.UPDATE, new CollidePlatformAction(PhysicsService, AudioService, _rows));
             script.AddAction(Constants.UPDATE, new CollideSlimeAction(PhysicsService, AudioService));
             script.AddAction(Constants.UPDATE, new CheckOverAction());     

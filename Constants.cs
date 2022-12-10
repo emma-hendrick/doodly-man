@@ -197,15 +197,24 @@ namespace Unit06
                 } }
         };
 
-        // FINISH LINE
-        public static string FINISH_LINE_GROUP = "finishLine";
-
-
         public static int PLATFORM_WIDTH = 160;
         public static int PLATFORM_HEIGHT = 56;
         public static double PLATFORM_DELAY = 0.5;
         public static int PLATFORM_RATE = 4;
         public static int PLATFORM_POINTS = 50;
+
+        // ERASERS
+        public static string ERASER_GROUP = "eraser";
+        public static int ERASER_COUNT = 30;
+        public static int ERASER_MIN_SPEED = 3;
+        public static int ERASER_MAX_SPEED = 10;
+        public static int ERASER_WIDTH = 50;
+        public static int ERASER_HEIGHT = 50;
+        public static int ERASER_RATE = 4;
+        public static List<string> ERASER_IMAGES = new List<string>(){"Assets/Images/Eraser/000.png"};
+
+        // FINISH LINE
+        public static string FINISH_LINE_GROUP = "finishLine";
 
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";

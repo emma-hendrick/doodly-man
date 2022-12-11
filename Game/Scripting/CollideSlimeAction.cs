@@ -30,6 +30,7 @@ namespace Unit06.Game.Scripting
                 {
                     Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
                     stats.AddLevel();
+                    stats.AddPoints(50);
                     callback.OnNext(Constants.NEXT_LEVEL);
                 }
             } 
@@ -45,7 +46,15 @@ namespace Unit06.Game.Scripting
                 
                 Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
                 stats.RemoveLife();
-                callback.OnNext(Constants.TRY_AGAIN);
+
+                if (stats.GetLives() != 0)
+                {
+                    callback.OnNext(Constants.TRY_AGAIN);
+                }
+                else
+                {
+                    callback.OnNext(Constants.GAME_OVER);
+                }
 
             }
 

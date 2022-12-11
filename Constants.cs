@@ -110,7 +110,7 @@ namespace Unit06
                 "Assets/Images/102.png"
             };
 
-        public static int SLIME_WIDTH = 106;
+        public static int SLIME_WIDTH = 32;
         public static int SLIME_HEIGHT = 28;
         public static int SLIME_RATE = 6;
         public static int SLIME_SPEED = 8;

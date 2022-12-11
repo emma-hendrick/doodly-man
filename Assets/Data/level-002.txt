@@ -42,6 +42,7 @@ gg1, gg1, gg1, gg1, gg1, gg1, gg1, gg1
 --pl1
 --pr1
 --pc1
+--po1
 --fo8
 
 ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1

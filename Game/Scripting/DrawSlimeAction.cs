@@ -26,9 +26,11 @@ namespace Unit06.Game.Scripting
                 _videoService.DrawRectangle(size, pos, Constants.PURPLE, false);
             }
 
-            Animation animation = slime.GetAnimation();
-            Image image = animation.NextImage();
+            // Animation animation = slime.GetAnimation();
+            // Image image = animation.NextImage();
+
             Point position = body.GetPosition();
+            Image image = new Image(slime.getStateSprite(), 1.0, 0);
 
             if (slime.GetStaticPosition()) 
             {

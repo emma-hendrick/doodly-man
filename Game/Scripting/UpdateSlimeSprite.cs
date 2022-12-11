@@ -6,9 +6,10 @@ namespace Unit06.Game.Scripting
 {
     public class UpdateSprite
     {
+        /// Checks the SlameState, then returns the appropriate sprite
         string state = CheckSlimeState(velocity);
 
-        public string UpdateSprite(string state) {
+        public void UpdateSprite(string state) {
             
             if ("cresting") {
                 return "sprite_018.png";

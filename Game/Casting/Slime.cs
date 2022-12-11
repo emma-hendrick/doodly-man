@@ -1,4 +1,5 @@
 using System;
+using Unit06.Game.Scripting;
 namespace Unit06.Game.Casting
 {
     /// <summary>
@@ -9,6 +10,9 @@ namespace Unit06.Game.Casting
         private Body _body;
         private Animation _animation;
         private bool _staticPosition;
+        SlimeState _slimeState = new SlimeState();
+        string _state;
+        string _sprite;
         
         /// <summary>
         /// Constructs a new instance of Actor.
@@ -116,6 +120,35 @@ namespace Unit06.Game.Casting
             int limitedVelocityY = Math.Abs(newVelocityY) < Constants.TERMINAL_VELOCITY ? newVelocityY: Math.Sign(velocityY) * Constants.TERMINAL_VELOCITY;
             return new Point(velocityX, limitedVelocityY);
         }
-        
+
+        public string getStateSprite()
+        {
+
+            _state = _slimeState.CheckSlimeState(_body.GetVelocity().GetY());
+            
+            switch (_state) 
+            {
+                case "cresting":
+                    _sprite = "sprite_018.png";
+                    break;
+                case "careening":
+                    _sprite = "sprite_025.png";
+                    break;
+                case "falling":
+                    _sprite = "sprite_000.png";
+                    break;
+                case "peaking":
+                    _sprite = "sprite_022.png";
+                    break;
+                case "leaping":
+                    _sprite = "sprite_024.png";
+                    break;
+                default:
+                    _sprite = "sprite_000.png";
+                    break;
+            }
+
+            return _sprite;
+        }    
     }
 }

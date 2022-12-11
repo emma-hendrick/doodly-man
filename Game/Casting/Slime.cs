@@ -129,22 +129,22 @@ namespace Unit06.Game.Casting
             switch (_state) 
             {
                 case "cresting":
-                    _sprite = "sprite_018.png";
+                    _sprite = "Assets/Images/CharacterAnimations/Green/sprite_018.png";
                     break;
                 case "careening":
-                    _sprite = "sprite_025.png";
+                    _sprite = "Assets/Images/CharacterAnimations/Green/sprite_025.png";
                     break;
                 case "falling":
-                    _sprite = "sprite_000.png";
+                    _sprite = "Assets/Images/CharacterAnimations/Green/sprite_000.png";
                     break;
                 case "peaking":
-                    _sprite = "sprite_022.png";
+                    _sprite = "Assets/Images/CharacterAnimations/Green/sprite_022.png";
                     break;
                 case "leaping":
-                    _sprite = "sprite_024.png";
+                    _sprite = "Assets/Images/CharacterAnimations/Green/sprite_024.png";
                     break;
                 default:
-                    _sprite = "sprite_000.png";
+                    _sprite = "Assets/Images/CharacterAnimations/Green/sprite_000.png";
                     break;
             }
 

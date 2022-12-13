@@ -59,7 +59,7 @@ ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
 
 -- Level base
 
-pl1, pc1, pc1, pc1, pc1, pc1, pc1, pr1
+ai1, pl1, pc1, pc1, pc1, pc1, pr1, ai1
 ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
 ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
 ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1

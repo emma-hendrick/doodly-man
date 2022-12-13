@@ -1,3 +1,5 @@
+using Unit06;
+
 namespace Unit06.Game.Casting
 {
     /// <summary>
@@ -12,7 +14,7 @@ namespace Unit06.Game.Casting
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Stats(int level = 0, int lives = 3, int score = 0, 
+        public Stats(int level = 0, int lives = Constants.DEFAULT_LIVES, int score = 0, 
                 bool debug = false) : base(debug)
         {
             this._level = level;

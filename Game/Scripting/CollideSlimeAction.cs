@@ -30,6 +30,7 @@ namespace Unit06.Game.Scripting
                 {
                     Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
                     stats.AddLevel();
+                    stats.AddLife();
                     stats.AddPoints(50);
                     callback.OnNext(Constants.NEXT_LEVEL);
                 }

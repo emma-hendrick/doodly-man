@@ -11,7 +11,7 @@ namespace Unit06
         // ----------------------------------------------------------------------------------------- 
 
         // GAME
-        public static string GAME_NAME = "Batter";
+        public static string GAME_NAME = "Doodly Man";
         public static int FRAME_RATE = 60;
 
         // SCREEN
@@ -84,8 +84,8 @@ namespace Unit06
 
         // STATS
         public static string STATS_GROUP = "stats";
-        public static int DEFAULT_LIVES = 3;
-        public static int MAXIMUM_LIVES = 5;
+        public const int DEFAULT_LIVES = 5;
+        public static int MAXIMUM_LIVES = 10;
 
         // HUD
         public static int HUD_MARGIN = 15;
@@ -207,7 +207,7 @@ namespace Unit06
         public static string ERASER_GROUP = "eraser";
         public static int ERASER_COUNT = 30;
         public static int ERASER_MIN_SPEED = 3;
-        public static int ERASER_MAX_SPEED = 10;
+        public static int ERASER_MAX_SPEED = 20;
         public static int ERASER_WIDTH = 50;
         public static int ERASER_HEIGHT = 50;
         public static int ERASER_RATE = 4;

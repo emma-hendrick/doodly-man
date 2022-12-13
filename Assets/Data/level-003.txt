@@ -1,5 +1,6 @@
 -- You can use comments like this
 
+-- Designed by Colin the Genius
 
 -- Border at the top of the level,
 -- so that the player can't see the
@@ -41,21 +42,32 @@ gg1, gg1, gg1, gg1, gg1, gg1, gg1, gg1
 --ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
 --pl1
 --pr1
+--pc1
+--po1
 --fo8
 
 ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
-ai1, fo8, ai1, ai1, ai1, ai1, fo8, ai1
 ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
 ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
-ai1, fo8, ai1, fo8, ai1, ai1, fo8, ai1
-ai1, ai1, ai1, fo8, ai1, ai1, ai1, ai1
-ai1, ai1, ai1, fo8, ai1, ai1, ai1, ai1
-ai1, fo8, ai1, fo8, ai1, ai1, fo8, ai1
-ai1, ai1, ai1, fo8, fo8, ai1, ai1, ai1
+po1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
 ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
-fo8, ai1, ai1, ai1, ai1, ai1, ai1, fo8
+ai1, ai1, ai1, po1, ai1, ai1, ai1, ai1
 ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
-ai1, fo8, ai1, ai1, ai1, ai1, fo8, ai1
+ai1, po1, ai1, ai1, ai1, po1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, po1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, po1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, po1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, po1, ai1, ai1, ai1, po1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+po1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
+ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
 ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
 ai1, ai1, ai1, ai1, ai1, ai1, ai1, ai1
 
